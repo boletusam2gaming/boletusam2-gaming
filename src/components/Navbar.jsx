@@ -15,8 +15,10 @@ export const Navbar = () => {
                 <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>
+                <li><Link to="/blog">Blog</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
                 <li><Link to="/store">Store</Link></li>
+                <li><Link to="/forum">Forums</Link></li>
                 <li><Link to="/livestream">Live Stream</Link></li>
 
                 </ul>

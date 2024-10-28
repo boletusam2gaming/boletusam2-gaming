@@ -1,0 +1,46 @@
+/* Blog.css */
+.blog-container {
+    padding: 20px;
+    margin: 20px auto; /* Adds space around the container */
+    max-width: 800px;
+    text-align: center;
+    background: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Neon glow */
+}
+
+.blog-container h2 {
+    font-size: 2rem;
+    color: #00ffdd;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+.filter-container {
+    margin-bottom: 20px;
+}
+
+.filter-container select {
+    padding: 10px;
+    border: 1px solid #00ffdd;
+    border-radius: 5px;
+    background: #0e0e0e;
+    color: #fff;
+}
+
+.articles {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.article {
+    background: #2a2a2a;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.article h3 {
+    margin-top: 0;
+    color: #00ffdd;
+}

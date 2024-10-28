@@ -1,0 +1,15 @@
+[
+    {
+      "id": 1,
+      "title": "Latest Gaming News",
+      "content": "This is a sample news article.",
+      "category": "News"
+    },
+    {
+      "id": 2,
+      "title": "Game Review: XYZ",
+      "content": "This is a sample review of game XYZ.",
+      "category": "Reviews"
+    }
+  ]
+  
