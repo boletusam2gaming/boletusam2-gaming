@@ -2,13 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
     background-color: #000; /* Adjust as needed */
 }
 
 #twitch-embed {
     width: 100%;
     max-width: 1900px;
-    height: 800px;
-    
+    height: 815px;
 }
