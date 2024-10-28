@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Hero.css';
 
 export const Hero = () => {
@@ -10,7 +11,7 @@ export const Hero = () => {
             <h1>Boletusam2 Gaming</h1>
             <p>Coming Soon...</p>
             <button className="stream">
-                <a href="/livestream">Live Stream</a>
+            <Link to="/livestream">Live Stream</Link>
             </button>
         </div>  
     </section>
