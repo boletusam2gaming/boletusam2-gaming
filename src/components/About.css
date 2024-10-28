@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: #0e0e0e;
+  color: #fff;
+}
+
+.about-container {
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+
+.about-intro, .our-mission, .team {
+  margin-top: 40px;
+}
+
+.about-intro h2, .our-mission h2, .team h2 {
+  font-size: 2rem;
+  color: #00ffdd;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+.about-intro p, .our-mission p, .team p {
+  font-size: 1.2rem;
+}
+
+.team-member {
+  display: inline-block;
+  margin: 20px;
+  text-align: center;
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #00ffdd;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+.team-member h3 {
+  margin-top: 10px;
+  color: #00ffdd;
+}
+
+.team-member p {
+  color: #ffffff;
+}

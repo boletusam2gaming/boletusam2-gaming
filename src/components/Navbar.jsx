@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 
@@ -6,17 +7,18 @@ export const Navbar = () => {
   return (
         <header className="navbar">
             <div className="logo">
-                <a href="/">
-                    <img src= "./images/logo_social_modded.png" alt="Boletusam2 Gaming logo" />
-                </a>
+                <Link to="/">
+                <img src={`${process.env.PUBLIC_URL}/images/logo_social_modded.png`} alt="Boletusam2 Gaming logo" />
+                </Link>
             </div>
             <nav>
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                    <li><a href="/store">Store</a></li>
-                    <li><a href="/livestream">Live Stream</a></li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/about">About</Link></li>
+                <li><Link to="/contact">Contact</Link></li>
+                <li><Link to="/store">Store</Link></li>
+                <li><Link to="/livestream">Live Stream</Link></li>
+
                 </ul>
             </nav>
         </header>    
