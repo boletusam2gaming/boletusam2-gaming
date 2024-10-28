@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: #0e0e0e;
+  color: #fff;
+}
+
+.home-container {
+  text-align: center;
+  padding: 20px;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+
+}
+
+.welcome-section {
+  margin-top: 20px;
+}
+
+.welcome-section h2 {
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+.features-section {
+  margin-top: 40px;
+}
+
+.features-section h2 {
+  font-size: 2rem;
+  color: #00ffdd;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+.features-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+.features-section li {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #00ffdd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    transition: transform 0.3s ease, background 0.3s ease; /* Smooth transitions */
+}
+  
+.features-section li:hover {
+    background: rgba(0, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+/* Schedule Section */
+
+.schedule-stream {
+    margin-top: 40px;
+    padding: 20px;
+    background: linear-gradient(145deg, #0a0a0a, #1a1a1a); /* Sleek background */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Neon glow */
+}
+
+.schedule-stream h2 {
+    font-size: 2rem;
+    color: #00ffdd;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+.schedule-stream p {
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.stream-schedule {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Responsive layout */
+    margin-top: 20px;
+}
+
+.stream-day {
+    padding: 10px;
+    border: 1px solid #00ffdd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    transition: transform 0.3s ease, background 0.3s ease;
+    width: 30%; /* Adjust for responsiveness */
+    margin-bottom: 20px; /* Spacing between items */
+}
+
+.stream-day h3 {
+    color: #00ffdd;
+}
+
+.stream-day p {
+    color: #ffffff;
+}
+
+.stream-day:hover {
+    background: rgba(0, 255, 255, 0.2);
+    transform: scale(1.05);
+}

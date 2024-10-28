@@ -1,0 +1,45 @@
+/* src/components/Navbar.css */
+.navbar {
+    display: flex;
+    justify-content: center; /* Center align the content */
+    align-items: center;
+    background-color: #333;
+    padding: 10px 0;
+    color: #fff;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.logo img {
+    height: 50px; /* Adjust logo size as needed */
+}
+
+.navbar .logo img {
+    height: 50px;
+}
+
+.navbar nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar nav ul li {
+    margin: 0 10px;
+}
+
+.navbar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar nav ul li a:hover {
+    background-color: #555;
+    padding: 2px;
+    border-radius: 5px;
+}

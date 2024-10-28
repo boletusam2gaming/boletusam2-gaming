@@ -1,0 +1,14 @@
+.livestream-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000; /* Adjust as needed */
+}
+
+#twitch-embed {
+    width: 100%;
+    max-width: 1900px;
+    height: 800px;
+    
+}
