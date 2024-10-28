@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/boletusam2-gaming/static/css/main.e5b0f20e.css",
+    "main.css": "/boletusam2-gaming/static/css/main.63aa8206.css",
     "main.js": "/boletusam2-gaming/static/js/main.2b824225.js",
     "static/js/453.5eef9c35.chunk.js": "/boletusam2-gaming/static/js/453.5eef9c35.chunk.js",
     "static/media/hero-image.jpg": "/boletusam2-gaming/static/media/hero-image.660501256f1615b1e298.jpg",
     "index.html": "/boletusam2-gaming/index.html",
-    "main.e5b0f20e.css.map": "/boletusam2-gaming/static/css/main.e5b0f20e.css.map",
+    "main.63aa8206.css.map": "/boletusam2-gaming/static/css/main.63aa8206.css.map",
     "main.2b824225.js.map": "/boletusam2-gaming/static/js/main.2b824225.js.map",
     "453.5eef9c35.chunk.js.map": "/boletusam2-gaming/static/js/453.5eef9c35.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e5b0f20e.css",
+    "static/css/main.63aa8206.css",
     "static/js/main.2b824225.js"
   ]
 }
