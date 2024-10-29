@@ -20,14 +20,19 @@ const Home = () => {
       <section className="features-section">
         <h2>Why Choose Us?</h2>
         <ul>
-          <li>24/7 Gaming Live Streams</li>
+          <li>Weekly Gaming Live Streams</li>
           <li>Latest Gaming News and Reviews</li>
           <li>Exclusive Content for Members</li>
         </ul>
       </section>
       <section className="schedule-stream">
         <h2>Stream Schedule</h2>
-        <p>Check out our stream schedule below to see when we are live!</p>
+        <p>Check out our stream schedule below to see when we are live!
+          <br/>
+          For 2 years am away from streaming for vacation, will return soon.
+          <br/>
+          Dont miss out on the Upcoming Stream when i return.
+          </p>
         <div className="stream-schedule">
           <div className="stream-day">
             <h3>Monday</h3>
