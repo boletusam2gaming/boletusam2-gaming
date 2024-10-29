@@ -2,12 +2,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
     background-color: #000; /* Adjust as needed */
+    padding: 20px;
 }
 
 #twitch-embed {
-    width: 100%;
-    max-width: 1900px;
-    height: 815px;
+    width: 100%; /* Ensure full width */
+    max-width: 1600px; /* Limit width on larger screens */
+    height: 70vh; /* Adjust height for better view on mobile */
+    border: none; /* Optional: to remove any default borders */
+}
+  
+@media (max-width: 768px) {
+    #twitch-embed {
+      height: 70vh; /* Adjust height for tablets and small laptops */
+    }
+}
+  
+@media (max-width: 480px) {
+    .livestream-page {
+      padding: 10px; /* Adjust padding for smaller screens */
+    }
+    
+    #twitch-embed {
+      height: 80vh; /* Further adjustment for small screens */
+    }
 }

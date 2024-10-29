@@ -10,8 +10,8 @@ export const LiveStream = () => {
       script.src = "https://embed.twitch.tv/embed/v1.js";
       script.addEventListener('load', () => {
         new window.Twitch.Embed("twitch-embed", {
-          width: 1900,
-          height: 800,
+          width: '100%',
+          height: '100%',
           channel: "Boletusam2_Gaming",
         });
       });
