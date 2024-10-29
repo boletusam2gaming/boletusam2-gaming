@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Hero from './Hero'; // Assuming Hero is another component
 import './Home.css';
+import { updateTitle } from '../utils/updateTitle'
 
 const Home = () => {
+
+  useEffect(() => {
+    updateTitle("Home")
+  });
+
+
   return (
     <div className="home-container">
       <Hero />

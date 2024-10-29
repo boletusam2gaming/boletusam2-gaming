@@ -16,7 +16,7 @@
   
 @media (max-width: 768px) {
     #twitch-embed {
-      height: 70vh; /* Adjust height for tablets and small laptops */
+      height: 50vh; /* Adjust height for tablets and small laptops */
     }
 }
   

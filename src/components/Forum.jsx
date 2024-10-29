@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import GoogleForm from './GoogleForm';
 import './Forum.css';
+  import { updateTitle } from '../utils/updateTitle';
 
 const Forum = () => {
+
+  useEffect(() => {
+    updateTitle("Forums")
+  })
+
+
+  
   const topics = [
     { id: 1, title: "Welcome to the Forum", author: "Admin", date: "2024-10-01", replies: 5 },
     { id: 2, title: "Game Recommendations", author: "User123", date: "2024-10-02", replies: 12 },

@@ -1,7 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './Contact.css';
+import { updateTitle } from '../utils/updateTitle'
 
 export const Contact = () => {
+
+  useEffect(() => {
+    updateTitle("Contact")
+  });
+
+
+
   return (
         <div className="contact-container">
           <h2>Contact Us</h2>

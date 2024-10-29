@@ -1,7 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './Store.css';
+  import { updateTitle } from '../utils/updateTitle';
 
 const Store = () => {
+  useEffect(() => {
+    updateTitle("Store")
+  })
+
+
+
   const products = [
     { id: 1, name: "Gaming Headset", price: "$59.99", description: "High-quality sound with noise cancellation.", image: "/assets/gaming_headset.jpg" },
     { id: 2, name: "Mechanical Keyboard", price: "$89.99", description: "RGB lighting with customizable keys.", image: "/path/to/keyboard.jpg" },

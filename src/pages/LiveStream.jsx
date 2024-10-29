@@ -1,7 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import "./LiveStream.css";
+  import { updateTitle } from '../utils/updateTitle';
 
 export const LiveStream = () => {
+
+  useEffect(() => {
+    updateTitle("Live Steam")
+  })
+
+
   const embedRef = useRef(null);
 
   useEffect(() => {

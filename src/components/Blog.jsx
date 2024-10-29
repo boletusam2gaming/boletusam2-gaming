@@ -1,8 +1,15 @@
 // src/components/Blog.jsx
 import React, { useState, useEffect } from 'react';
 import './Blog.css';
+import { updateTitle } from '../utils/updateTitle';
+
 
 const Blog = () => {
+
+  useEffect(() => {
+    updateTitle("Blog")
+  });
+
   const [articles, setArticles] = useState([]);
   const [filter, setFilter] = useState('All');
 

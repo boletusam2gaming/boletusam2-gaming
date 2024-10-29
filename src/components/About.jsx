@@ -1,7 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './About.css';
+import { updateTitle } from '../utils/updateTitle';
 
 const About = () => {
+
+  
+  useEffect(() => {
+    updateTitle("About")
+  })
+
+
+
   return (
     <div className="about-container">
       <section className="about-intro">
