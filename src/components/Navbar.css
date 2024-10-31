@@ -19,7 +19,8 @@
 }
 
 .navbar .logo img {
-    height: 50px;
+    height: 350px;
+    
 }
 
 .navbar nav ul {
@@ -40,7 +41,6 @@
 
 .navbar nav ul li a:hover {
     background-color: #555;
-    padding: 2px;
     border-radius: 5px;
 }
 

@@ -1,41 +1,144 @@
-import React, {useEffect} from 'react';
-import GoogleForm from './GoogleForm';
+import React, { useState, useEffect } from 'react';
+import { db } from '../firebase';
+import { collection, query, onSnapshot, addDoc, deleteDoc, doc, getDocs } from 'firebase/firestore';
 import './Forum.css';
-  import { updateTitle } from '../utils/updateTitle';
 
 const Forum = () => {
+  const [posts, setPosts] = useState([]);
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [comments, setComments] = useState({});
 
   useEffect(() => {
-    updateTitle("Forums")
-  })
+    const q = query(collection(db, 'posts'));
+    const unsubscribe = onSnapshot(q, async (querySnapshot) => {
+      const postsArray = [];
+      for (const doc of querySnapshot.docs) {
+        const postData = { id: doc.id, ...doc.data() };
+        const commentsSnapshot = await getDocs(collection(db, `posts/${doc.id}/comments`));
+        postData.comments = commentsSnapshot.docs.map(commentDoc => ({ id: commentDoc.id, ...commentDoc.data() }));
+        postsArray.push(postData);
+      }
+      setPosts(postsArray);
+    });
 
+    return () => unsubscribe();
+  }, []);
 
-  
-  const topics = [
-    { id: 1, title: "Welcome to the Forum", author: "Admin", date: "2024-10-01", replies: 5 },
-    { id: 2, title: "Game Recommendations", author: "User123", date: "2024-10-02", replies: 12 },
-    { id: 3, title: "Best RPG Games of 2024", author: "GamerGirl", date: "2024-10-03", replies: 8 },
-    { id: 4, title: "Upcoming Game Releases", author: "GameGuru", date: "2024-10-04", replies: 15 },
-  ];
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const newPost = { title, content };
+    await addDoc(collection(db, 'posts'), newPost);
+    setTitle('');
+    setContent('');
+  };
+
+  const handleCommentChange = (postId, value) => {
+    setComments({
+      ...comments,
+      [postId]: value,
+    });
+  };
+
+  const handleCommentSubmit = async (postId, e) => {
+    e.preventDefault();
+    const newComment = { content: comments[postId] };
+    const commentRef = await addDoc(collection(db, `posts/${postId}/comments`), newComment);
+    setComments({
+      ...comments,
+      [postId]: '',
+    });
+    setPosts(posts.map(post => {
+      if (post.id === postId) {
+        return {
+          ...post,
+          comments: [...post.comments, { id: commentRef.id, ...newComment }]
+        };
+      }
+      return post;
+    }));
+  };
+
+  const handleDeletePost = async (postId) => {
+    await deleteDoc(doc(db, 'posts', postId));
+    setPosts(posts.filter(post => post.id !== postId));
+  };
+
+  const handleDeleteComment = async (postId, commentId) => {
+    await deleteDoc(doc(db, `posts/${postId}/comments`, commentId));
+    setPosts(posts.map(post => {
+      if (post.id === postId) {
+        return {
+          ...post,
+          comments: post.comments.filter(comment => comment.id !== commentId)
+        };
+      }
+      return post;
+    }));
+  };
 
   return (
-    <div className="forum-container">
-      <h2>Community Forum</h2>
-      <p>Welcome to the community forum! Feel free to start a new topic or join existing discussions.</p>
-      
-      <GoogleForm />  {/* Add this line to embed the Google Form */}
+    <div className="container">
+      <h1>Public Forum. 
+      <br/>Please feel free to post your thoughts and comments on any games.
 
-      <div className="topics">
-        {topics.map(topic => (
-          <div key={topic.id} className="topic">
-            <h3>{topic.title}</h3>
-            <p>Started by {topic.author} on {new Date(topic.date).toLocaleDateString()}</p>
-            <p>{topic.replies} replies</p>
-          </div>
-        ))}
+
+      </h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Title:</label>
+          <input 
+            type="text" 
+            value={title} 
+            onChange={(e) => setTitle(e.target.value)} 
+            required 
+          />
+        </div>
+        <div>
+          <label>Content:</label>
+          <textarea 
+            value={content} 
+            onChange={(e) => setContent(e.target.value)} 
+            required 
+          />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+      <div>
+        <h2>Posts</h2>
+        <ul>
+          {posts.map((post) => (
+            <li key={post.id}>
+              <h3>{post.title}</h3>
+              <p>{post.content}</p>
+              <button className="delete" onClick={() => handleDeletePost(post.id)}>Delete Post</button>
+              <div>
+                <h4>Comments</h4>
+                <ul>
+                  {post.comments && post.comments.map((comment) => (
+                    <li key={comment.id}>
+                      {comment.content}
+                      <button className="delete" onClick={() => handleDeleteComment(post.id, comment.id)}>Delete Comment</button>
+                    </li>
+                  ))}
+                </ul>
+                <form onSubmit={(e) => handleCommentSubmit(post.id, e)}>
+                  <input 
+                    type="text" 
+                    value={comments[post.id] || ''} 
+                    onChange={(e) => handleCommentChange(post.id, e.target.value)} 
+                    placeholder="Add a comment" 
+                    required 
+                  />
+                  <button type="submit">Submit</button>
+                </form>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
-}
+};
 
 export default Forum;
