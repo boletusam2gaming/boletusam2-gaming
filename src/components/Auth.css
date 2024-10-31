@@ -1,0 +1,99 @@
+/* Container for the auth form */
+.auth-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #00ffdd; /* Accent color */
+    border-radius: 10px;
+    background-color: #1e1e1e; /* Dark background */
+    color: #fff; /* Light text color */
+}
+
+/* Form elements */
+.auth-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00ffdd; /* Accent color */
+}
+
+.auth-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-container label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #00ffdd; /* Accent color */
+}
+
+.auth-container input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #00ffdd; /* Accent color */
+    border-radius: 5px;
+    background-color: #0e0e0e; /* Dark input background */
+    color: #fff; /* Light text color */
+    width: 400px;
+
+}
+
+.auth-container button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00ffdd; /* Accent color */
+    color: #0e0e0e; /* Dark text color */
+    cursor: pointer;
+    margin-bottom: 10px;
+    
+}
+.signup{
+    width: 100px;
+    margin-right: 25px;
+}
+.auth-container button:hover {
+    background-color: #00b3cc; /* Hover color */
+}
+
+/* Google sign-in button */
+.google-signin-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4285f4; /* Google blue */
+    color: white;
+    cursor: pointer;
+    width: 280px;
+    margin-left: 50px;
+}
+
+.google-signin-button img {
+    width: 70px;
+    margin-right: 10px;
+    padding: 10px;
+    
+
+}
+
+.google-signin-button:hover {
+    background-color: #357ae8; /* Darker Google blue */
+}
+
+/* Toggle button */
+.toggle-button {
+    background: none;
+    border: none;
+    color: #00ffdd; /* Accent color */
+    cursor: pointer;
+    text-align: center;
+    width:280px;
+    margin-left: 50px;
+}
+
+.toggle-button:hover {
+    text-decoration: underline;
+}
