@@ -2,7 +2,7 @@
   "name": "boletusam2-gaming",
   "version": "0.1.5",
   "private": true,
-  "homepage": "https://boletusam2.github.io/boletusam2-gaming",
+  "homepage": "https://boletusam2gaming.gitlab.io/boletusam2-gaming/",
   "dependencies": {
     "@apollo/client": "^3.11.8",
     "@testing-library/jest-dom": "^5.17.0",
@@ -28,7 +28,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "git add . && git commit -m 'Deploy to GitLab' && 'git push origin main"
   },
   "eslintConfig": {
     "extends": [

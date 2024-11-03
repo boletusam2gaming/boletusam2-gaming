@@ -2,7 +2,6 @@ image: node:latest
 
 stages:
   - build
-  - test
   - deploy
 
 cache:
@@ -26,6 +25,6 @@ pages:
     - mv build public
   artifacts:
     paths:
-    - public
+      - public
   only:
-    - master
+    - main
