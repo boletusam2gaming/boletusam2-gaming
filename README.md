@@ -23,14 +23,14 @@ To get started with the project, follow these steps:
     ```
 3. **Install dependencies**:
     ```sh
-    # Use your preferred package manager
+    # npm install <packagee name>
     ```
 
 ## Usage
 
 - **Running the application**:
     ```sh
-    # Command to start the application
+    # npm start
     ```
 
 ## Contributing
@@ -43,6 +43,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-For any inquiries or support, please contact us at [support@boletusam2gaming.com](mailto:support@boletusam2gaming.com).
+For any inquiries or support, please contact us at [support@boletusam2gaming.com](mailto:superman123769@outlook.com).
 
 Enjoy gaming!
