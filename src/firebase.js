@@ -16,13 +16,17 @@ const firebaseConfig = {
     messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
     appId: process.env.REACT_APP_FIREBASE_APP_ID,
     measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
-  };
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+// init analytics
 const analytics = getAnalytics(app);
+// init firestore
 const firestore = getFirestore(app);
+// init auth
 const db = getFirestore(app);
+// init auth
 const auth = getAuth(app);
 
 

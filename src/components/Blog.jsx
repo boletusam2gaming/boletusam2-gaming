@@ -1,53 +1,78 @@
-// src/components/Blog.jsx
 import React, { useState, useEffect } from 'react';
-import './Blog.css';
+import { collection, query, orderBy, getDocs } from 'firebase/firestore';
+import { db, auth } from '../firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import { updateTitle } from '../utils/updateTitle';
-
+import './Blog.css'; // Assuming you have a CSS file for styling
 
 const Blog = () => {
-
-  useEffect(() => {
-    updateTitle("Blog")
-  });
-
-  const [articles, setArticles] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [filter, setFilter] = useState('All');
+  const [articles, setArticles] = useState([]);
+  const [user] = useAuthState(auth);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`${process.env.PUBLIC_URL}/articles.json`)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => setArticles(data))
-      .catch(error => console.error('Error fetching articles:', error));
+    updateTitle("Blog");
   }, []);
-  
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const q = query(collection(db, 'posts'), orderBy('date', 'desc'));
+        const querySnapshot = await getDocs(q);
+        const fetchedPosts = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        setPosts(fetchedPosts);
+        setArticles(fetchedPosts); // Initialize articles with fetched posts
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      }
+    };
+
+    fetchPosts();
+  }, []);
 
   const filteredArticles = filter === 'All' ? articles : articles.filter(article => article.category === filter);
 
+  const handleAddPost = () => {
+    navigate('/add-post');
+  };
+
   return (
     <div className="blog-container">
-      <h2>News & Reviews</h2>
+      <h1>Blog</h1>
       <div className="filter-container">
-        <select onChange={(e) => setFilter(e.target.value)} value={filter}>
+        <label htmlFor="category-filter">Filter by category:</label>
+        <select
+          id="category-filter"
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+        >
           <option value="All">All</option>
-          <option value="News">News</option>
-          <option value="Reviews">Reviews</option>
+          <option value="Technology">Technology</option>
+          <option value="Health">Health</option>
+          <option value="Lifestyle">Lifestyle</option>
+          {/* Add more categories as needed */}
         </select>
       </div>
-      <div className="articles">
-        {filteredArticles.map(article => (
-          <div key={article.id} className="article">
-            <h3>{article.title}</h3>
-            <p>{article.content}</p>
-          </div>
+      {user && user.customClaims && user.customClaims.role === 'admin' && (
+        <button onClick={handleAddPost} className="add-post-button">
+          Add Post
+        </button>
+      )}
+      <ul className="post-list">
+        {filteredArticles.map(post => (
+          <li key={post.id} className="post-item">
+            <h2>{post.title}</h2>
+            <p>{post.content}</p>
+            <p>Author: {post.author}</p>
+            <p>Date: {new Date(post.date.seconds * 1000).toLocaleDateString()}</p>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
-}
+};
 
 export default Blog;

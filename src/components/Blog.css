@@ -1,46 +1,69 @@
-/* Blog.css */
 .blog-container {
-    padding: 20px;
-    margin: 20px auto; /* Adds space around the container */
-    max-width: 800px;
-    text-align: center;
-    background: #1a1a1a;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Neon glow */
-}
-
-.blog-container h2 {
-    font-size: 2rem;
-    color: #00ffdd;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #1e1e1e; /* Dark background */
+  color: #fff; /* Light text color */
 }
 
 .filter-container {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.filter-container label {
+  margin-right: 10px;
+  font-size: 1.2em;
 }
 
 .filter-container select {
-    padding: 10px;
-    border: 1px solid #00ffdd;
-    border-radius: 5px;
-    background: #0e0e0e;
-    color: #fff;
+  padding: 10px;
+  border: 1px solid #00ffdd; /* Neon accent color */
+  border-radius: 5px;
+  background: #0e0e0e; /* Dark background */
+  color: #fff; /* Light text color */
 }
 
-.articles {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.add-post-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #00ffdd; /* Neon accent color */
+  color: #0e0e0e; /* Dark text color */
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
-.article {
-    background: #2a2a2a;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: left;
+.add-post-button:hover {
+  background-color: #00b3cc; /* Hover color */
 }
 
-.article h3 {
-    margin-top: 0;
-    color: #00ffdd;
+.post-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.post-item {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #00ffdd; /* Neon accent color */
+  border-radius: 10px;
+  background-color: #0e0e0e; /* Dark background for posts */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Neon glow */
+  transition: transform 0.3s ease, background 0.3s ease; /* Smooth transitions */
+}
+
+.post-item:hover {
+  background: rgba(0, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.post-item h2 {
+  margin: 0 0 10px;
+  font-size: 2rem;
+  color: #00ffdd; /* Neon accent color */
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Neon text glow */
+}
+
+.post-item p {
+  margin: 5px 0;
 }

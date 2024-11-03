@@ -1,37 +1,56 @@
-import React, {useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './Store.css';
-  import { updateTitle } from '../utils/updateTitle';
+import { updateTitle } from '../utils/updateTitle';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
+import { db } from '../firebase'; // Ensure you have the correct path to your firebase configuration
+import { useNavigate } from 'react-router-dom';
 
 const Store = () => {
+  const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
+
   useEffect(() => {
-    updateTitle("Store")
-  })
+    updateTitle("Store");
 
+    const fetchProducts = async () => {
+      try {
+        const q = query(collection(db, 'products'), orderBy('date', 'desc'), orderBy('price', 'asc'));
+        const querySnapshot = await getDocs(q);
+        const fetchedProducts = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        setProducts(fetchedProducts);
+        console.log('Fetched Products:', fetchedProducts); // Debugging statement
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
 
+    fetchProducts();
+  }, []);
 
-  const products = [
-    { id: 1, name: "Gaming Headset", price: "$59.99", description: "High-quality sound with noise cancellation.", image: "/assets/gaming_headset.jpg" },
-    { id: 2, name: "Mechanical Keyboard", price: "$89.99", description: "RGB lighting with customizable keys.", image: "/path/to/keyboard.jpg" },
-    { id: 3, name: "Gaming Mouse", price: "$49.99", description: "High precision with programmable buttons.", image: "/path/to/mouse.jpg" }
-  ];
+  const handleAddProduct = () => {
+    navigate('/add-product');
+  };
 
   return (
     <div className="store-container">
       <h2>Store</h2>
       <p>Welcome to our gaming store! Check out our exclusive products below.</p>
+      <button onClick={handleAddProduct} className="add-product-button">
+        Add Product
+      </button>
       <div className="products">
         {products.map(product => (
           <div key={product.id} className="product">
             <img src={product.image} alt={product.name} />
             <h3>{product.name}</h3>
             <p>{product.description}</p>
-            <p className="price">{product.price}</p>
+            <p className="price">${product.price.toFixed(2)}</p>
             <button>Add to Cart</button>
           </div>
         ))}
       </div>
     </div>
   );
-}
+};
 
 export default Store;

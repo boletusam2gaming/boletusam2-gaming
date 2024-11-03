@@ -35,14 +35,18 @@ body {
 .features-section ul {
   list-style-type: none;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 }
 .features-section li {
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #00ffdd;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
-    transition: transform 0.3s ease, background 0.3s ease; /* Smooth transitions */
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #00ffdd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+  transition: transform 0.3s ease, background 0.3s ease; /* Smooth transitions */
 }
   
 .features-section li:hover {
