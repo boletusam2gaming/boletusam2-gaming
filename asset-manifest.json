@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/boletusam2-gaming/static/css/main.fedde9c6.css",
-    "main.js": "/boletusam2-gaming/static/js/main.1349c7ba.js",
-    "static/js/453.5eef9c35.chunk.js": "/boletusam2-gaming/static/js/453.5eef9c35.chunk.js",
-    "static/media/hero-image.jpg": "/boletusam2-gaming/static/media/hero-image.660501256f1615b1e298.jpg",
-    "index.html": "/boletusam2-gaming/index.html",
-    "main.fedde9c6.css.map": "/boletusam2-gaming/static/css/main.fedde9c6.css.map",
-    "main.1349c7ba.js.map": "/boletusam2-gaming/static/js/main.1349c7ba.js.map",
-    "453.5eef9c35.chunk.js.map": "/boletusam2-gaming/static/js/453.5eef9c35.chunk.js.map"
+    "main.css": "/officialproject/boletusam2-gaming.git/static/css/main.d964917a.css",
+    "main.js": "/officialproject/boletusam2-gaming.git/static/js/main.096dc600.js",
+    "static/js/453.5eef9c35.chunk.js": "/officialproject/boletusam2-gaming.git/static/js/453.5eef9c35.chunk.js",
+    "static/media/hero-image.jpg": "/officialproject/boletusam2-gaming.git/static/media/hero-image.660501256f1615b1e298.jpg",
+    "index.html": "/officialproject/boletusam2-gaming.git/index.html",
+    "main.d964917a.css.map": "/officialproject/boletusam2-gaming.git/static/css/main.d964917a.css.map",
+    "main.096dc600.js.map": "/officialproject/boletusam2-gaming.git/static/js/main.096dc600.js.map",
+    "453.5eef9c35.chunk.js.map": "/officialproject/boletusam2-gaming.git/static/js/453.5eef9c35.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fedde9c6.css",
-    "static/js/main.1349c7ba.js"
+    "static/css/main.d964917a.css",
+    "static/js/main.096dc600.js"
   ]
 }
