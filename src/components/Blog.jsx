@@ -7,7 +7,6 @@ import { updateTitle } from '../utils/updateTitle';
 import './Blog.css'; // Assuming you have a CSS file for styling
 
 const Blog = () => {
-  const [posts, setPosts] = useState([]);
   const [filter, setFilter] = useState('All');
   const [articles, setArticles] = useState([]);
   const [user] = useAuthState(auth);
@@ -23,7 +22,6 @@ const Blog = () => {
         const q = query(collection(db, 'posts'), orderBy('date', 'desc'));
         const querySnapshot = await getDocs(q);
         const fetchedPosts = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        setPosts(fetchedPosts);
         setArticles(fetchedPosts); // Initialize articles with fetched posts
       } catch (error) {
         console.error('Error fetching posts:', error);
@@ -31,7 +29,7 @@ const Blog = () => {
     };
 
     fetchPosts();
-  }, [setPosts]);
+  }, []);
 
   const filteredArticles = filter === 'All' ? articles : articles.filter(article => article.category === filter);
 
