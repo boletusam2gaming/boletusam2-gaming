@@ -7,7 +7,7 @@ import { updateTitle } from '../utils/updateTitle';
 import './Blog.css'; // Assuming you have a CSS file for styling
 
 const Blog = () => {
-  const [ setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [filter, setFilter] = useState('All');
   const [articles, setArticles] = useState([]);
   const [user] = useAuthState(auth);
@@ -31,7 +31,7 @@ const Blog = () => {
     };
 
     fetchPosts();
-  }, []);
+  }, [setPosts]);
 
   const filteredArticles = filter === 'All' ? articles : articles.filter(article => article.category === filter);
 
