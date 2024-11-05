@@ -27,7 +27,7 @@ jobs:
                 git config --global user.name "@boletusam2gaming"
                 git config --global user.email "ahmed.shiraz89@gmail.com"
                 git remote add gitlab https://gitlab.com/officialproject/boletusam2-gaming-site.git
-                git remote set-url gitlab https://oauth2:${{ env.GITLAB_TOKEN }}@gitlab.com/officialproject/boletusam2-gaming.git                
+                git remote set-url gitlab https://oauth2:${{ env.GITLAB_TOKEN }}@gitlab.com/officialproject/boletusam2-gaming-site.git                
       
             - name: Deploy to GitLab
               env:
