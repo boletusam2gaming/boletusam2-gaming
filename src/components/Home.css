@@ -103,3 +103,89 @@ body {
     background: rgba(0, 255, 255, 0.2);
     transform: scale(1.05);
 }
+
+
+/* Past Stream Section */
+
+.past-streams {
+  border: 1px solid #00ffdd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+  transition: transform 0.3s ease, background 0.3s ease;
+  margin-top: 30px;
+}
+
+.past-streams h2 {
+  font-size: 2rem;
+  color: #00ffdd;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+.video-container{
+  margin:20px 0;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  
+}
+#twitch-embed {
+  width: 100%;
+  height: 1980px;
+  max-width: 100%;
+}
+/* Social Media */
+.social-media {
+  margin: 40px 0;
+  text-align: center;
+  border: 1px solid #00ffdd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.social-media h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333; /* Adjust color to match your theme */
+}
+
+.social-media .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.social-media .social-links a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #1a1a1a; /* Adjust background color to match your theme */
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 1em;
+}
+
+.social-media .social-links a:hover {
+  background-color: #333333; /* Adjust hover background color to match your theme */
+  transform: scale(1.05);
+}
+
+.social-media .social-links a.youtube {
+  background-color: #ff0000; /* YouTube red */
+}
+
+.social-media .social-links a.twitch {
+  background-color: #6441a5; /* Twitch purple */
+}
+
+.social-media .social-links a.twitter {
+  background-color: #000000; /* Black for x.com */
+  color: #ffffff; /* White text for contrast */
+}
+
+.social-media .social-links a.facebook {
+  background-color: #3b5998; /* Facebook blue */
+}

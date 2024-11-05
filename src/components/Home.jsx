@@ -1,13 +1,42 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import Hero from './Hero'; // Assuming Hero is another component
 import './Home.css';
 import { updateTitle } from '../utils/updateTitle'
 
 const Home = () => {
-
+  const [playerInitialized, setPlayerInitialized] =  useState(false);
   useEffect(() => {
     updateTitle("Home")
-  });
+
+    // Load the Twitch embed script only once
+    if (!playerInitialized) {
+      const script = document.createElement('script');
+      script.src = "https://player.twitch.tv/js/embed/v1.js";
+      script.async = true;
+      script.onload = () => {
+        if (!window.twitchPlayer) {
+          window.twitchPlayer = new window.Twitch.Player("twitch-embed", {
+            video: "759603722",
+            parent: ["boletusam2gaming.github.io"],
+            innerWidth: "100%",
+            innerHeight: "360"
+          });
+        }
+        setPlayerInitialized(true);
+      };
+      document.body.appendChild(script);
+    } else {
+      if (!window.twitchPlayer) {
+        window.twitchPlayer = new window.Twitch.Player("twitch-embed", {
+          video: "759603722",
+          parent: ["boletusam2gaming.github.io"],
+          innerWidth: "100%",
+          innerHeight: "360"
+        });
+      }
+    }
+  },
+ [playerInitialized]); // Dependency array includes playerInitialized to ensure it runs only once
 
 
   return (
@@ -56,6 +85,31 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <section className="past-streams">
+        <h2>Past Live Stream From Twitch Below</h2>
+        <div id="twitch-embed" className="video-container"></div>
+      </section>
+
+      <section className="social-media"> 
+      <h2>Follow Us on Social Media</h2>
+        <div className="social-links">
+          <a href="https://www.youtube.com/@boletusam2gaming" target="_blank" rel="noopener noreferrer" className="youtube">
+            YouTube
+          </a>
+          <a href="https://www.twitch.tv/boletusam2_gaming" target="_blank" rel="noopener noreferrer" className="twitch">
+            Twitch
+          </a>
+          <a href="https://x.com/@boletusam2_g" target="_blank" rel="noopener noreferrer" className="twitter">
+            Twitter
+          </a>
+          <a href="https://www.facebook.com/boletusam2" target="_blank" rel="noopener noreferrer" className="facebook">
+            Facebook
+          </a>
+        </div>
+      </section>
+
+
     </div>
   );
 }
