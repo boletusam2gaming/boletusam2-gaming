@@ -33,5 +33,5 @@ jobs:
               env:
                 GITLAB_TOKEN: ${{ env.GITLAB_TOKEN }}
               run: |
-                git remote add gitlab https://gitlab.com/officialproject/boletusam2-gaming.git
+                git remote add gitlab https://gitlab.com/officialproject/boletusam2-gaming-site.git
                 git push gitlab master
