@@ -1,0 +1,30 @@
+name: Deploy to GitLab
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+      
+            - name: Load environment variables from .env file
+              run: |
+                echo "GITLAB_TOKEN=$(grep GITLAB_TOKEN .env | cut -d '=' -f2)" >> $GITHUB_ENV
+      
+            - name: Install GitLab CLI
+              run: |
+                curl -s https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
+                sudo apt-get install gitlab-runner
+      
+            - name: Deploy to GitLab
+              env:
+                GITLAB_TOKEN: ${{ env.GITLAB_TOKEN }}
+              run: |
+                git remote add gitlab https://gitlab.com/officialproject/boletusam2-gaming.git
+                git push gitlab master
