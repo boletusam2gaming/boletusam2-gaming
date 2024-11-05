@@ -1,12 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Hero from './Hero'; // Assuming Hero is another component
 import './Home.css';
 import { updateTitle } from '../utils/updateTitle'
 
 const Home = () => {
-  const [playerInitialized, setPlayerInitialized] =  useState(false);
+  const [playerInitialized, setPlayerInitialized] = useState(false);
+
   useEffect(() => {
-    updateTitle("Home")
+    updateTitle("Home");
 
     // Load the Twitch embed script only once
     if (!playerInitialized) {
@@ -18,8 +19,8 @@ const Home = () => {
           window.twitchPlayer = new window.Twitch.Player("twitch-embed", {
             video: "759603722",
             parent: ["boletusam2gaming.github.io"],
-            innerWidth: "100%",
-            innerHeight: "360"
+            width: '100%',
+            height: '100%',
           });
         }
         setPlayerInitialized(true);
@@ -30,14 +31,12 @@ const Home = () => {
         window.twitchPlayer = new window.Twitch.Player("twitch-embed", {
           video: "759603722",
           parent: ["boletusam2gaming.github.io"],
-          innerWidth: "100%",
-          innerHeight: "360"
+          width: '100%',
+          height: '100%',
         });
       }
     }
-  },
- [playerInitialized]); // Dependency array includes playerInitialized to ensure it runs only once
-
+  }, [playerInitialized]); // Dependency array includes playerInitialized to ensure it runs only once
 
   return (
     <div className="home-container">
@@ -57,11 +56,11 @@ const Home = () => {
       <section className="schedule-stream">
         <h2>Stream Schedule</h2>
         <p>Check out our stream schedule below to see when we are live!
-          <br/>
+          <br />
           For 2 years am away from streaming for vacation, will return soon.
-          <br/>
+          <br />
           Dont miss out on the Upcoming Stream when i return.
-          </p>
+        </p>
         <div className="stream-schedule">
           <div className="stream-day">
             <h3>Monday</h3>
@@ -88,11 +87,12 @@ const Home = () => {
 
       <section className="past-streams">
         <h2>Past Live Stream From Twitch Below</h2>
+        
         <div id="twitch-embed" className="video-container"></div>
       </section>
 
-      <section className="social-media"> 
-      <h2>Follow Us on Social Media</h2>
+      <section className="social-media">
+        <h2>Follow Us on Social Media</h2>
         <div className="social-links">
           <a href="https://www.youtube.com/@boletusam2gaming" target="_blank" rel="noopener noreferrer" className="youtube">
             YouTube
@@ -108,7 +108,6 @@ const Home = () => {
           </a>
         </div>
       </section>
-
 
     </div>
   );
