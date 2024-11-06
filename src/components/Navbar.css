@@ -1,11 +1,13 @@
 /* src/components/Navbar.css */
 .navbar {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center; /* Center align the content */
     align-items: center;
     background-color: #333;
     padding: 10px 0;
     color: #fff;
+    align-items: end;
 }
 .logo {
     display: flex;
@@ -20,7 +22,7 @@
 
 .navbar .logo img {
     height: 350px;
-    
+
 }
 
 .navbar nav ul {
@@ -37,12 +39,10 @@
 .navbar nav ul li a {
     color: #fff;
     text-decoration: none;
-    display: block;
-    padding: 10px;
 }
 
 .navbar nav ul li a:hover {
-    background-color: #4a4a4a;
+    background-color: #555;
     border-radius: 5px;
 }
 
