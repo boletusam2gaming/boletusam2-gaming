@@ -37,10 +37,12 @@
 .navbar nav ul li a {
     color: #fff;
     text-decoration: none;
+    display: block;
+    padding: 10px;
 }
 
 .navbar nav ul li a:hover {
-    background-color: #555;
+    background-color: #4a4a4a;
     border-radius: 5px;
 }
 

@@ -188,3 +188,23 @@ body {
 .social-media .social-links a.facebook {
   background-color: #3b5998; /* Facebook blue */
 }
+
+@media screen and (max-width: 768px) {
+  .features-section ul {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .features-section li {
+    width: 100%;
+  }
+  .stream-schedule {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    
+  }
+  .stream-day {
+    width: 100%;
+  }
+  
+}
