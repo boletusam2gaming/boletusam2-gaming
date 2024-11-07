@@ -6,7 +6,7 @@ import './Navbar.css';
 export const Navbar = () => {
 
     // YouTube Video
-    const videoSrc = "https://www.youtube.com/embed/39yS9P43nUU?autoplay=1&loop=1&mute=1&playlist=39yS9P43nUU"; // Modified embed link
+    const videoSrc = "https://www.youtube.com/embed/39yS9P43nUU?autoplay=1&loop=1&mute=1&controls=0&playlist=39yS9P43nUU"; // Modified embed link
 
     return (
         <header className="navbar">
