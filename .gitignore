@@ -30,5 +30,4 @@ src/aws/
 # local env files
 .env
 
-# large file 
-src/assets/mw3_quad_killstreak.mp4
+
