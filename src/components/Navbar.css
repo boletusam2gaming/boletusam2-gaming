@@ -13,7 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 50px;
 }
 
 .logo img {
@@ -45,6 +45,19 @@
     background-color: #555;
     border-radius: 5px;
 }
+
+
+video{
+    width: 1890px;
+    height: 380px;
+    opacity: 0.5;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+
+}
+
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
