@@ -7,6 +7,7 @@ import './Navbar.css';
 export const Navbar = () => {
 return (
     <header className="navbar">
+        
         <div className="logo">
             <Link to="/">
                 <img src={`${process.env.PUBLIC_URL}/images/logo_social_modded.png`} alt="Boletusam2 Gaming logo" />
@@ -23,8 +24,8 @@ return (
                 <li><Link to="/forum">Forums</Link></li>
                 <li><Link to="/livestream">Live Stream</Link></li>
             </ul>
-            <div className="video">
-                <video src={codVideo} loop muted autoPlay controls></video>
+            <div className="background-video-container">
+                <video src={codVideo} loop muted autoPlay className="background-video"></video>
             </div>
         </nav>
         
