@@ -51,18 +51,21 @@
 
 .navbar nav ul li {
     margin: 0 10px;
+    height: 100%;
 }
 
 .navbar nav ul li a {
     color: #fff;
     text-decoration: none;
-    
+    padding: 10px;
+    display: block;
 }
 
 .navbar nav ul li a:hover {
     background-color: #555;
     border-radius: 5px;
-
+    
+    
     
 }
 

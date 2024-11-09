@@ -5,6 +5,7 @@ import { updateTitle } from '../utils/updateTitle'
 
 const Home = () => {
   const [playerInitialized, setPlayerInitialized] = useState(false);
+  
 
   useEffect(() => {
     updateTitle("Home");
@@ -37,6 +38,10 @@ const Home = () => {
       }
     }
   }, [playerInitialized]); // Dependency array includes playerInitialized to ensure it runs only once
+
+  // Featured products data fetching
+
+
 
   return (
     <div className="home-container">
@@ -91,6 +96,9 @@ const Home = () => {
         <div id="twitch-embed" className="video-container"></div>
       </section>
 
+
+
+
       <section className="social-media">
         <h2>Follow Us on Social Media</h2>
         <div className="social-links">
@@ -112,6 +120,6 @@ const Home = () => {
 
     </div>
   );
-}
+};
 
 export default Home;
