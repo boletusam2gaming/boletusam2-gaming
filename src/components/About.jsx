@@ -27,6 +27,10 @@ const About = () => {
           <h3>Hafiz Ahmed</h3>
           <p>Founder & Lead Streamer</p>
         </div>
+        <div className="team-member">
+          <h3>Team Member</h3>
+          <p>Editor-in-Chief</p>
+        </div>
         {/* Add more team members as needed */}
       </section>
     </div>

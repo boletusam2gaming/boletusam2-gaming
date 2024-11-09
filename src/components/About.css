@@ -10,11 +10,16 @@ body {
   padding: 20px;
   text-align: center;
   color: #fff;
+  
 }
 
 
 .about-intro, .our-mission, .team {
   margin-top: 40px;
+  border-radius: 40px;
+  border: 2px solid #00ffdd;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+  padding:10px;
 }
 
 .about-intro h2, .our-mission h2, .team h2 {
@@ -31,6 +36,10 @@ body {
   display: inline-block;
   margin: 20px;
   text-align: center;
+  padding: 30px;
+  border-radius: 50px;
+  border: 2px solid #00ffdd;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
 }
 
 .team-member img {
