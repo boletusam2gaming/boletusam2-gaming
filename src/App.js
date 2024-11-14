@@ -15,6 +15,7 @@ import Admin from './components/Admin';
 import Footer from './components/Footer';
 import Login from './pages/Login';
 import AddPost from './components/AddPost';
+import Video from './pages/Video';
 import { Navigate } from 'react-router-dom';
 import './App.css';
 
@@ -43,6 +44,7 @@ function App() {
         <Route path="/store" element={<Store />} />
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/livestream" element={<Livestream />} />
+        <Route path="/video" element={<Video />} />
         <Route path="/admin" element={isAdmin ? <Admin /> : <Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
         <Route path="/add-post" element={isAdmin ? <AddPost /> : <Navigate to="/login" />} />

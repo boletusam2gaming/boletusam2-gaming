@@ -1,0 +1,32 @@
+.youtube-video-section{
+    text-align: center;
+    margin: 20px 0;
+}
+.youtube-video-container{
+    margin: 20px auto;
+    width: 100%;
+    max-width: 800px; /* Adjust as needed */
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #00ffdd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+.youtube-video-container h3{
+    color: #00ffdd;
+    margin-bottom: 20px;
+}
+.youtube-video-container p{
+    color: #ffffff;
+}
+
+.youtube-video-container iframe{
+    width: 600px;
+    height: 300px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    transition: transform 0.3s ease, background 0.3s ease;
+}

@@ -114,7 +114,14 @@ const Home = () => {
           <a href="https://www.facebook.com/boletusam2" target="_blank" rel="noopener noreferrer" className="facebook">
             Facebook
           </a>
+          <a href="https://discord.gg/RQD2SugkcF" target="_blank" rel="noopener noreferrer" className="discord">
+            Discord
+          </a>
+          
         </div>
+
+
+
       </section>
 
 

@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
 import { db } from '../firebase';
 import { collection, addDoc } from 'firebase/firestore';
+import { useAuth } from '../hooks/AuthContext';
 
 const AddProduct = () => {
+  const {role} = useAuth(); //gets the user's role
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   const [date, setDate] = useState('');
+  // const [image, setImage] = useState('');
+
+
+  if (role !== 'admin') {
+    return <h2>Only admins can add products</h2>;
+  }
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,7 +26,6 @@ const AddProduct = () => {
         price: parseFloat(price),
         description,
         date: new Date(date),
-        
       });
       setName('');
       setPrice('');
@@ -27,6 +36,10 @@ const AddProduct = () => {
       console.error('Error adding product: ', error);
     }
   };
+
+
+
+
 
   return (
     <div className="add-product-container">
@@ -67,10 +80,19 @@ const AddProduct = () => {
             required 
           />
         </div>
-      
+        {/*
+         <div>
+          <label>Image:</label>
+          <input 
+            type="file" 
+            onChange={(e) => setImage(e.target.files[0])} 
+            required 
+          />
+        */}
         <button type="submit">Add Product</button>
       </form>
     </div>
+    
   );
 };
 
