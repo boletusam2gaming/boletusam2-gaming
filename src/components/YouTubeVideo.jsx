@@ -37,7 +37,12 @@ const YouTubeVideo = ({ videoId }) => {
     }
   }, [videoId]);
 
-  return <div ref={playerRef} className="youtube-video-container"></div>;
+  return <div
+   ref={playerRef} 
+   className="youtube-video-container"
+   
+   
+   ></div>;
 };
 
 export default YouTubeVideo;

@@ -5,12 +5,13 @@
 .youtube-video-container{
     margin: 20px auto;
     width: 100%;
-    max-width: 800px; /* Adjust as needed */
+    max-width: 1000px; /* Adjust as needed */
     position: relative;
     overflow: hidden;
     border: 1px solid #00ffdd;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    padding: 50px;
 }
 .youtube-video-container h3{
     color: #00ffdd;
@@ -22,7 +23,7 @@
 
 .youtube-video-container iframe{
     width: 600px;
-    height: 300px;
+    height: 500px;
     border: none;
     border-radius: 8px;
     margin-top: 20px;
