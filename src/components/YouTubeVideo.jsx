@@ -29,19 +29,15 @@ const YouTubeVideo = ({ videoId }) => {
         });
       }
     };
-
+    
     if (!window.YT) {
       loadYouTubeAPI();
     } else {
       createPlayer();
     }
-  }, [videoId]);
+    }, [videoId]);  
 
-  return <div
-   ref={playerRef}  className="youtube-video-container"
-    style={{ width: '100%', height: '100%'}}
-   
-   ></div>;
+  return <div ref={playerRef} className="youtube-video-container"></div>;
 };
 
 export default YouTubeVideo;
