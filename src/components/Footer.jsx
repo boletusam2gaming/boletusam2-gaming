@@ -4,7 +4,7 @@ import './Footer.css';
 export const Footer = () => {
   return (
         <footer>
-            <p>© 2024 Boletuam2 Gaming</p>
+            <p>© 2024 Boletusam2 Gaming</p>
         </footer>    
     );
 }
