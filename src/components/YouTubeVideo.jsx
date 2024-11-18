@@ -38,9 +38,8 @@ const YouTubeVideo = ({ videoId }) => {
   }, [videoId]);
 
   return <div
-   ref={playerRef} 
-   className="youtube-video-container"
-   
+   ref={playerRef}  className="youtube-video-container"
+    style={{ width: '100%', height: '100%'}}
    
    ></div>;
 };
