@@ -8,8 +8,19 @@
 .youtube-video-section h2 {
     margin-bottom: 20px;
     color: #00ffdd; /* Theme color */
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Theme color */
+    font-size: 2.5rem;
+    font-weight: 700;   
+    border-bottom:2px solid #00ffdd; /* Theme color */
+    display: inline-block;
+    
+    
 }
-
+.youtube-video-section h2:hover {
+    color: #00ffdd; /* Theme color */
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Theme color */
+    border-bottom:2px solid #00ffdd; /* Theme color */
+}
 .youtube-video-container {
     margin: 20px auto;
     width: 100%;

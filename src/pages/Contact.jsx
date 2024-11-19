@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import emailjs from 'emailjs-com';
 import { updateTitle } from '../utils/updateTitle';
-import './Contact.css'; // Assuming you have a CSS file for styling
+import './Contact.css'; 
 
 const Contact = () => {
   const [name, setName] = useState('');

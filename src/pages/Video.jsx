@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useEffect} from 'react';
 import './Video.css';
+import { updateTitle } from '../utils/updateTitle';
 
 
 const Videos = () => {
+// page title
+  useEffect(() => {
+    updateTitle("Videos");
+  }, []);
+
+
 
   // Array of YouTube video IDs and titles
 
@@ -19,18 +26,18 @@ const Videos = () => {
   return (
     //  YouTube videos Container
     <section className="youtube-video-section">
-      <h2>Past YouTube Videos Below</h2>
+      <h2>YouTube Videos Below</h2>
 
       {/* Render YouTube videos */}
       {videoIds.map((video) => (
         // Rendering each YouTube video
-        <div key={video.id} className="youtube-video-container">
-          <h3>{video.title}</h3>
+        <div key={video.id} className="youtube-video-container"> 
+          <h3>{video.title}</h3> 
           <iframe
-            width="100%"
-            height="400"
-            src={`https://www.youtube.com/embed/${video.id}`}
-            title={video.title}
+            width="100%"  // Set the width of the video
+            height="400" // Set the height of the video
+            src={`https://www.youtube.com/embed/${video.id}`} // Embed YouTube video by updating the ID from the videoIds array
+            title={video.title} // Title of the video updated from the videoIds array
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
