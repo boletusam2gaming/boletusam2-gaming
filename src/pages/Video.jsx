@@ -27,6 +27,7 @@ const Videos = () => {
     //  YouTube videos Container
     <section className="youtube-video-section">
       <h2>YouTube Videos Below</h2>
+      <p>More videos on my YouTube Channel </p>
 
       {/* Render YouTube videos */}
       {videoIds.map((video) => (
