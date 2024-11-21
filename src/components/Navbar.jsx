@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/AuthContext';
 import './Navbar.css';
 
-
+// Navbar component
 export const Navbar = () => {
 
     const {currentUser, logout} = useAuth(); //get current user for role check from AuthContext
@@ -25,7 +25,7 @@ export const Navbar = () => {
     const videoSrc = "https://www.youtube.com/embed/39yS9P43nUU?autoplay=1&loop=1&mute=1&controls=0&playlist=39yS9P43nUU"; // Modified embed link
 
 
-
+      // Return the Navbar component
     return (
         <header className="navbar">
             
@@ -35,6 +35,7 @@ export const Navbar = () => {
                 </Link>
             </div>
             
+            {/* navbar links */}
             <nav>
                 <ul>
                     <li><Link to="/">Home</Link></li>

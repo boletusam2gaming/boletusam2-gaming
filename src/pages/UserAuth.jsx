@@ -5,13 +5,14 @@ import { toast } from 'react-toastify';
 import './UserAuth.css';
 
 const UserAuth = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState(''); // Add state for name
+  const [email, setEmail] = useState('');// Add state for email
+  const [password, setPassword] = useState(''); // Add state for password
+  const [name, setName] = useState(''); // Add state for name 
   const [isSignUp, setIsSignUp] = useState(true); // Toggle between sign up and sign in
   const auth = getAuth();
   const navigate = useNavigate();
 
+  // Function to handle sign up and sign in  
   const handleAuth = async (e) => {
     e.preventDefault();
     try {
@@ -34,6 +35,7 @@ const UserAuth = () => {
     }
   };
 
+  // Function to handle password reset
   const handlePasswordReset = async () => {
     if (!email) {
       toast.error('Please enter your email to reset password');
@@ -47,7 +49,7 @@ const UserAuth = () => {
       console.error('Error:', error.code, error.message);
     }
   };
-
+  // Return the user authentication form
   return (
     <div className="user-auth-container">
       <h2>{isSignUp ? 'Sign Up' : 'Sign In'}</h2>
