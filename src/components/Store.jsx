@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import './Store.css';
 import { updateTitle } from '../utils/updateTitle';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
+import { useAuth } from '../hooks/AuthContext'; // Import the AuthContext
 import { db } from '../firebase'; // Ensure you have the correct path to your firebase configuration
 import { useNavigate } from 'react-router-dom';
+import './Store.css';
 
 const Store = () => {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
+  const {currentUser} = useAuth(); //get current user for role check from AuthContext
 
   useEffect(() => {
     updateTitle("Store");
@@ -35,9 +37,12 @@ const Store = () => {
     <div className="store-container">
       <h2>Store</h2>
       <p>Welcome to our gaming store! Check out our exclusive products below.</p>
-      <button onClick={handleAddProduct} className="add-product-button">
-        Add Product
-      </button>
+      {currentUser && currentUser.role === 'admin' && (
+      
+        <button onClick={handleAddProduct} className="add-product-button">
+          Add Product
+        </button>
+      )}
       <div className="products">
         {products.map(product => (
           <div key={product.id} className="product">

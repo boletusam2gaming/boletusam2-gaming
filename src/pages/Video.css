@@ -82,15 +82,17 @@
     border-bottom: 2px solid #00ffdd; /* Theme color */
   }
   .youtube-video-container h3 {
-    padding-top: 2px;
+    padding-top: 5px;
     margin-right: 15px;
     margin-bottom: 5px;
     border-right: none;
     border-bottom: 2px solid #00ffdd; /* Theme color */
+    max-width: 100%;
   }
   
   .youtube-video-container iframe {
     height: 300px; /* Adjust height as needed */
+    max-width: 100%;
   }
 }
 
@@ -102,11 +104,10 @@
   font-size: 1rem;
   }
   .youtube-video-container {
-    padding: 10px;
-    padding-bottom: 58%; /* Maintain aspect ratio */
+    padding-bottom: 25px; /* Maintain aspect ratio */
     height: 100%;
-    width: 100%;
     border-bottom: 2px solid #00ffdd; /* Theme color */
+    max-width: 100%;
   }
   
   .youtube-video-container h3 {

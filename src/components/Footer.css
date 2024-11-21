@@ -5,4 +5,19 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px 0;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 10px 0;
+        max-width: 100%;
+    }
+    
+}
+@media (max-width: 480px) {
+    footer {
+        width: 100%;
+    }
+    
 }

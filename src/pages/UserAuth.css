@@ -1,0 +1,40 @@
+/* src/components/UserAuth.css */
+
+.user-auth-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.user-auth-container h2 {
+  margin-bottom: 20px;
+}
+
+.user-auth-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-auth-container input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.user-auth-container button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #00ffdd; /* Theme color */
+  color: white;
+  cursor: pointer;
+}
+
+.user-auth-container button:hover {
+  background-color: #00ccaa; /* Darker theme color */
+}

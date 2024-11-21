@@ -1,7 +1,7 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { auth } from '../firebase'; // Import your Firebase auth instance
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 
-const AuthContext = createContext({role: 'admin'});
+const AuthContext = createContext();
 
 export const useAuth = () => {
   return useContext(AuthContext);
@@ -12,7 +12,8 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
       setLoading(false);
     });
@@ -20,9 +21,14 @@ export const AuthProvider = ({ children }) => {
     return unsubscribe;
   }, []);
 
+  const logout = () => {
+    const auth = getAuth();
+    return signOut(auth);
+  };
+
   const value = {
     currentUser,
-    role: currentUser ? currentUser.role : null, // Assuming user role is stored in the user object
+    logout,
   };
 
   return (

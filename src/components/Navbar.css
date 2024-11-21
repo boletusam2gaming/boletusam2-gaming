@@ -59,6 +59,7 @@
     text-decoration: none;
     padding: 10px;
     display: block;
+    text-wrap: nowrap;
 }
 
 .navbar nav ul li a:hover {
@@ -69,8 +70,17 @@
     
 }
 
+.navbar nav ul li a.logout-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
 
-
+.navbar nav ul li a.logout-link:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
