@@ -48,8 +48,13 @@ export const Navbar = () => {
                     <li><Link to="/livestream">Live Stream</Link></li>
                     {currentUser ? (
                         <>
-                        <li><span>Welcome, {currentUser.displayName}</span></li>
-                        <li><Link to= "/login" onClick={handleLogout}>Logout</Link></li>
+                        <li className="dropdown">
+                            <span>Welcome, {currentUser.displayName}</span>
+                            <ul className="dropdown-content">
+                            <li><Link to="/edit-profile">Edit Profile</Link></li>
+                            <li><Link to="/login" onClick={handleLogout}>Logout</Link></li>
+                            </ul>
+                        </li>
                         </>
                     ) : (
                         <li><Link to="/login">Login</Link></li>

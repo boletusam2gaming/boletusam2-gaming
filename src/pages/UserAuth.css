@@ -28,13 +28,14 @@
 
 .user-auth-container button {
   padding: 10px;
+  margin-right: 10px;
   border: none;
-  border-radius: 4px;
-  background-color: #00ffdd; /* Theme color */
+  border-radius: 9px;
+  background-color: #00ffdd91; /* Theme color */
   color: white;
   cursor: pointer;
 }
 
 .user-auth-container button:hover {
-  background-color: #00ccaa; /* Darker theme color */
+  background-color: #5effe4bd; /* Darker theme color */
 }

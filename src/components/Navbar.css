@@ -35,18 +35,19 @@
 
 .logo img {
     height: 50px; /* Adjust logo size as needed */
+    opacity: .7;
 }
 
 .navbar .logo img {
     height: 350px;
-
 }
 
 .navbar nav ul {
     display: flex;
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin-top: -25px; /* Adjust margin as needed  for nav links */
+    margin-bottom: -55px;/* Adjust margin as needed  for nav links */
 }
 
 .navbar nav ul li {
@@ -64,10 +65,7 @@
 
 .navbar nav ul li a:hover {
     background-color: #555;
-    border-radius: 5px;
-    
-    
-    
+    border-radius: 5px;    
 }
 
 .navbar nav ul li a.logout-link {
@@ -81,6 +79,46 @@
     background-color: #555;
     border-radius: 5px;
 }
+
+
+.navbar ul li span {
+    color: white;
+    padding: 1px;
+    display: block;
+    cursor: pointer;
+}
+  
+.navbar ul li .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #00ccaa;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    text-wrap: nowrap;
+}
+  
+.navbar ul li .dropdown-content li {
+    padding: 5px;
+}
+  
+.navbar ul li .dropdown-content li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+  
+.navbar ul li .dropdown-content li a:hover {
+    background-color: #555;
+}
+  
+.navbar ul li:hover .dropdown-content {
+    display: block;
+}
+
+
+
+
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
