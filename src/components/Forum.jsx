@@ -144,7 +144,7 @@ const Forum = () => {
                 required 
               />
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit">Post</button>
           </form>
           <div>
             <h2>Posts</h2>
