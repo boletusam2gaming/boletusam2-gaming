@@ -32,4 +32,6 @@ src/aws/
 # local env files
 .env
 
-
+#config and server files
+config/
+server/

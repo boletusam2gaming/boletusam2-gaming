@@ -18,6 +18,7 @@ const AddPost = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Add a new post to forum collection in Firebase
     try {
       await addDoc(collection(db, 'posts'), {
         title,

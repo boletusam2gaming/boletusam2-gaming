@@ -1,26 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { updateTitle } from '../utils/updateTitle';
-import { collection, getDocs, query, orderBy } from 'firebase/firestore';
-import { useAuth } from '../hooks/AuthContext'; // Import the AuthContext
-import { db } from '../firebase'; // Ensure you have the correct path to your firebase configuration
 import { useNavigate } from 'react-router-dom';
 import './Store.css';
 
 const Store = () => {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
-  const {currentUser} = useAuth(); //get current user for role check from AuthContext
+  const currentUser = JSON.parse(localStorage.getItem('authUser'));
 
   useEffect(() => {
+    const updateTitle = (title) => {
+      document.title = title;
+    };
+
     updateTitle("Store");
 
     const fetchProducts = async () => {
       try {
-        const q = query(collection(db, 'products'), orderBy('date', 'desc'), orderBy('price', 'asc'));
-        const querySnapshot = await getDocs(q);
-        const fetchedProducts = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        setProducts(fetchedProducts);
-        console.log('Fetched Products:', fetchedProducts); // Debugging statement
+        const response = await fetch('https://api.forthwall.com/v1/products', {
+          headers: {
+            'Authorization': `Bearer ${process.env.REACT_APP_FORTHWALL_STOREFRONT_API_KEY}`
+          }
+        });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setProducts(data.products);
       } catch (error) {
         console.error('Error fetching products:', error);
       }
@@ -38,7 +43,6 @@ const Store = () => {
       <h2>Store</h2>
       <p>Welcome to our gaming store! Check out our exclusive products below.</p>
       {currentUser && currentUser.role === 'admin' && (
-      
         <button onClick={handleAddProduct} className="add-product-button">
           Add Product
         </button>
