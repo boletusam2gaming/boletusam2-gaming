@@ -1,16 +1,16 @@
 import React, { useEffect, useRef } from 'react';
 import "./LiveStream.css";
-  import { updateTitle } from '../utils/updateTitle';
+import { updateTitle } from '../utils/updateTitle';
 
 export const LiveStream = () => {
-
+  // Update the title of the page
   useEffect(() => {
     updateTitle("Live Steam")
   })
 
-
+  // Initialize the Twitch embed
   const embedRef = useRef(null);
-
+  // useEffect hook
   useEffect(() => {
     if (!embedRef.current) {
       const script = document.createElement('script');

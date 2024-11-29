@@ -4,7 +4,7 @@ import { updateTitle } from '../utils/updateTitle';
 
 const About = () => {
 
-  
+  // Update the title of the page
   useEffect(() => {
     updateTitle("About")
   })

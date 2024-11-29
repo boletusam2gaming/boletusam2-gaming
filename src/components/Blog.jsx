@@ -22,6 +22,7 @@ const Blog = () => {
         const q = query(collection(db, 'posts'), orderBy('date', 'desc'));
         const querySnapshot = await getDocs(q);
         const fetchedPosts = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        console.log('Fetched posts:', fetchedPosts); // Debugging purposes
         setArticles(fetchedPosts); // Initialize articles with fetched posts
       } catch (error) {
         console.error('Error fetching posts:', error);
@@ -30,9 +31,9 @@ const Blog = () => {
 
     fetchPosts();
   }, []);
-
+  // Filter articles based on the selected category
   const filteredArticles = filter === 'All' ? articles : articles.filter(article => article.category === filter);
-
+  // Filter articles based on the selected category
   const handleAddPost = () => {
     navigate('/add-post');
   };

@@ -9,25 +9,28 @@ const Contact = () => {
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState('');
 
+  // Update the title of the page
   useEffect(() => {
     updateTitle("Contact");
   }, []);
 
+  // Handle the form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Send the email
     const templateParams = {
       name,
       email,
       message,
     };
-
+    // EmailJS API
     emailjs.send(
       process.env.REACT_APP_EMAILJS_SERVICE_ID,
       process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
       templateParams,
       process.env.REACT_APP_EMAILJS_USER_ID
-    )
+    ) // Promise
       .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
         setStatus('Message sent successfully!');

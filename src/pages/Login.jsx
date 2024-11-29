@@ -9,17 +9,19 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  // Handle the login form submission
   const handleLogin = async (e) => {
     e.preventDefault();
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate('/');
-    } catch (error) {
-      console.error('Error logging in: ', error);
-      alert(error.message);
+    try { // Sign in with email and password
+      await signInWithEmailAndPassword(auth, email, password); // Firebase Auth API
+      navigate('/');// Redirect to the home page
+    } catch (error) { // Handle errors
+      console.error('Error logging in: ', error); // Log the error
+      alert(error.message);// Show an alert with the error message
     }
   };
 
+  // Google Sign-In
   const handleGoogleSignIn = async () => {
     const provider = new GoogleAuthProvider();
     try {

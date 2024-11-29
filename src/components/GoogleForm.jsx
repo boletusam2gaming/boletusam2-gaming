@@ -2,6 +2,7 @@ import React from 'react';
 import './GoogleForm.css';
 
 const GoogleForm = () => {
+  // Google Form from creating a new post
   return (
     <div className="google-form-container">
      <iframe 
