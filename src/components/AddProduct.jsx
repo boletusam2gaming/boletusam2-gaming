@@ -1,23 +1,39 @@
-import React, { useState } from 'react';
-import { db } from '../firebase';
+import React, { useState, useEffect } from 'react';
+import { db, auth } from '../firebase';
 import { collection, addDoc } from 'firebase/firestore';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/AuthContext';
 
 const AddProduct = () => {
-  const {role} = useAuth(); //gets the user's role
+  const [user] = useAuthState(auth);
+  const { role, setRole } = useAuth(); // gets the user's role and setRole function
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   const [date, setDate] = useState('');
+  const navigate = useNavigate();
   // const [image, setImage] = useState('');
 
+  useEffect(() => {
+    if (user) {
+      user.getIdTokenResult().then(idTokenResult => {
+        setRole(idTokenResult.claims.role);
+      });
+    }
+  }, [user, setRole]);
 
-  if (role !== 'admin') {
-    return <h2>Only admins can add products</h2>;
+  // Check if the user is authenticated and an admin
+  if (!user) {
+    return <h2>Please log in to add products</h2>;
   }
 
+  if (role !== 'admin') {
+    navigate('/'); // Redirect to the home page or any other page
+    return null;
+  }
 
-
+  // Handle Submut for porduct addition
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

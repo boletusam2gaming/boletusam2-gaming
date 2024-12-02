@@ -26,14 +26,15 @@ import { ToastContainer } from 'react-toastify';
 
 
 
-
+// This is the main component that will be rendered by the index.js file
 function App() {
 
+  // This is a custom hook that will return the user object if the user is logged in
   const [user] = useAuthState(auth);
-
+  // This is a boolean that will be true if the user is logged in and is an admin
   const isAdmin = user && user.customClaims && user.customClaims.role === 'admin';
 
-
+// The Router component is used to define the routes in the application
   return (
     <AuthProvider>
       <Router>
@@ -50,7 +51,7 @@ function App() {
           <Route path="/video" element={<Video />} />
           <Route path="/admin" element={isAdmin ? <Admin /> : <Navigate to="/login" />} />
           <Route path="/login" element={<UserAuth />} />
-          <Route path="/add-post" element={isAdmin ? <AddPost /> : <Navigate to="/login" />} />
+          <Route path="/addpost" element={isAdmin ? <AddPost /> : <Navigate to="/login" />} />
           <Route path="/edit-profile" element={ <EditProfile />} /> 
         </Routes>
         <Footer />

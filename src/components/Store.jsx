@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { updateTitle } from '../utils/updateTitle';
 import './Store.css';
 
 const Store = () => {
@@ -8,9 +9,6 @@ const Store = () => {
   const currentUser = JSON.parse(localStorage.getItem('authUser'));
 
   useEffect(() => {
-    const updateTitle = (title) => {
-      document.title = title;
-    };
 
     updateTitle("Store");
 
@@ -32,7 +30,8 @@ const Store = () => {
     };
 
     fetchProducts();
-  }, []);
+  });
+
 
   const handleAddProduct = () => {
     navigate('/add-product');

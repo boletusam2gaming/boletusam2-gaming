@@ -10,7 +10,8 @@ const Auth = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
-
+  
+  // Function to handle user sign up
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
@@ -23,6 +24,7 @@ const Auth = () => {
     }
   };
 
+  // Function to handle user login
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -33,6 +35,7 @@ const Auth = () => {
     }
   };
 
+  // Function to handle Google sign in
   const handleGoogleSignIn = async () => {
     const provider = new GoogleAuthProvider();
     try {

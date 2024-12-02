@@ -4,9 +4,10 @@ import './Home.css';
 import { updateTitle } from '../utils/updateTitle'
 
 const Home = () => {
+  // State to check if the Twitch player is initialized
   const [playerInitialized, setPlayerInitialized] = useState(false);
   
-
+  // Update the title of the page
   useEffect(() => {
     updateTitle("Home");
 

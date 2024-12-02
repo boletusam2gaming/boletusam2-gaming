@@ -1,6 +1,10 @@
 import React from 'react';
 import './GoogleForm.css';
 
+
+// Google form is going to be removed soon
+
+
 const GoogleForm = () => {
   // Google Form from creating a new post
   return (

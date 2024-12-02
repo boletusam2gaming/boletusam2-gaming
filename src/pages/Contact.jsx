@@ -4,6 +4,7 @@ import { updateTitle } from '../utils/updateTitle';
 import './Contact.css'; 
 
 const Contact = () => {
+  // State variables for the form
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');

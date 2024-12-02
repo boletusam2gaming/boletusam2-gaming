@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { db, auth } from '../firebase';
-import { collection, query, onSnapshot, addDoc, deleteDoc, doc, getDocs } from 'firebase/firestore';
+import { collection, query, onSnapshot, addDoc, deleteDoc, doc, getDocs, orderBy } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import './Forum.css';
 import Auth from './Auth';
@@ -37,7 +37,7 @@ const Forum = () => {
   // Fetching posts from Firestore
   useEffect(() => { // Use an effect hook to fetch the posts from Firestore
     if (user) { // Check if the user is logged in
-      const q = query(collection(db, 'posts')); // Create a query for the posts
+      const q = query(collection(db, 'posts'), orderBy('date','desc'), orderBy('title','asc')); // Create a query for the posts
       const unsubscribe = onSnapshot(q, async (querySnapshot) => { // Get the posts from Firestore
         const postsArray = [];  // Create an array to store the posts
         for (const doc of querySnapshot.docs) { // Loop through the posts
@@ -46,6 +46,7 @@ const Forum = () => {
           postData.comments = commentsSnapshot.docs.map(commentDoc => ({ id: commentDoc.id, ...commentDoc.data() })); // Get the comments for the post
           postsArray.push(postData); // Add the post to the posts array
         }
+        console.log('Fetched posts:', postsArray); // debugging purposes
         setPosts(postsArray); 
       }); 
 
@@ -93,7 +94,6 @@ const Forum = () => {
   // Deleting a post from the forums
   const handleDeletePost = async (postId) => {
     try{
-      const user = auth.currentUser; // Get the current user to validate if the user is the owner of the post
       await deleteDoc(doc(db, 'posts', postId)); // Delete the post
       console.log(`Post ${postId} deleted successfully`); // Log the success message
     }catch(error){ // Catch any errors
@@ -123,7 +123,7 @@ const Forum = () => {
   // Return the forum component
   return (
     <div className="container">
-      {user ? (
+      {isAdmin ? (
         <>
           <h1>Public Forum</h1>
           <form onSubmit={handleSubmit}>
@@ -146,7 +146,7 @@ const Forum = () => {
             </div>
             <button type="submit">Post</button>
           </form>
-          <div>
+          <div className='forum-posts'>
             <h2>Posts</h2>
             <ul>
               {posts.map((post) => (

@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import Hero from './Hero';
 import './HomePage.css';
 
+// Home page component
 export const HomePage = () => {
   return (
     <div>

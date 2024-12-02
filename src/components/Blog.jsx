@@ -4,7 +4,7 @@ import { db, auth } from '../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { updateTitle } from '../utils/updateTitle';
-import './Blog.css'; // Assuming you have a CSS file for styling
+import './Blog.css'; // CSS file for styling
 
 const Blog = () => {
   const [filter, setFilter] = useState('All');
@@ -19,7 +19,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const q = query(collection(db, 'posts'), orderBy('date', 'desc'));
+        const q = query(collection(db, 'Blog'), orderBy('Date', 'desc'), orderBy('Title', 'asc'));
         const querySnapshot = await getDocs(q);
         const fetchedPosts = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         console.log('Fetched posts:', fetchedPosts); // Debugging purposes
@@ -31,11 +31,27 @@ const Blog = () => {
 
     fetchPosts();
   }, []);
+
+  // Check user authentication state if user is an admin or not
+  useEffect(() => {
+    if (user) {
+      user.getIdTokenResult().then(idTokenResult => {
+        if (idTokenResult.claims.admin) {
+          console.log('User is an admin');
+        } else {
+          console.log('User is not an admin');
+        }
+      });
+    }
+  }, [user]);
+
+
   // Filter articles based on the selected category
   const filteredArticles = filter === 'All' ? articles : articles.filter(article => article.category === filter);
+  
   // Filter articles based on the selected category
   const handleAddPost = () => {
-    navigate('/add-post');
+    navigate('/AddPost');
   };
 
   return (

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Hero.css';
 
+// Hero component
 export const Hero = () => {
   return (
     <section className="hero">

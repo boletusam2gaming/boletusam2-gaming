@@ -3,6 +3,7 @@ import { db, auth } from '../firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate } from 'react-router-dom';
+import './AddPost.css';
 
 const AddPost = () => {
   const [user] = useAuthState(auth);
@@ -12,10 +13,11 @@ const AddPost = () => {
   const [category, setCategory] = useState('');
   const [date, setDate] = useState('');
 
+  // Redirect to login page if user is not logged in
   if (!user) {
     return <Navigate to="/login" />;
   }
-
+  // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Add a new post to forum collection in Firebase
