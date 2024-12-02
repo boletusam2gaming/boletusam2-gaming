@@ -18,7 +18,7 @@ Welcome to the Boletusam2 Gaming site! This project is dedicated to providing an
 
 ## Features
 
-- **User Profiles**: Create and manage your gaming profile.
+- **User Profiles**: Create and manage your website profile.
 - **Live Streaming**: Watch and stream live gameplay.
 - **Game Library**: Access a wide variety of games.
 - **Community**: Connect with other gamers through forums and chat.

@@ -8,23 +8,22 @@ const EditProfile = () => {
   const user = auth.currentUser; // Get the current user
   const [name, setName] = useState(user.displayName || ''); // Set the name state to the user's display name
   const [email, setEmail] = useState(user.email || ''); // Set the email state to the user's email
-  const [password, setPassword] = useState(''); // Add state for password
 
     // Function to handle updating the user profile
-  const handleUpdateProfile = async (e) => {
+  const handleUpdateProfile = async (e) => { // Function to handle updating the user profile
     // Prevent the default form submission
     e.preventDefault();
-    try {
-      if (name !== user.displayName) {
-        await updateProfile(user, { displayName: name });
+    try { // Try to update the user profile
+      if (name !== user.displayName) {// Check if the name has changed
+        await updateProfile(user, { displayName: name });// Update the user's display name
+      }// Check if the email has changed
+      if (email !== user.email) {// Check if the email has changed
+        await updateEmail(user, email);// Update the user's email
       }
-      if (email !== user.email) {
-        await updateEmail(user, email);
-      }
-      toast.success('Profile updated successfully!');
-    } catch (error) {
-      toast.error(`Error: ${error.message}`);
-      console.error('Error:', error.code, error.message);
+      toast.success('Profile updated successfully!');// Display a success message
+    } catch (error) {// Catch any errors
+      toast.error(`Error: ${error.message}`); // Display an error message
+      console.error('Error:', error.code, error.message);// Log the error
     }
   };
   // Return the edit profile form
