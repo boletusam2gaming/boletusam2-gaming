@@ -5,6 +5,7 @@ Welcome to the Boletusam2 Gaming site! This project is dedicated to providing an
 ## Table of Contents
 
 - [Features](#features)
+- [About](#about)
 - [Usage](#usage)
   - [Running the Application](#running-the-application)
   - [Deployment](#deployment)
@@ -26,6 +27,10 @@ Welcome to the Boletusam2 Gaming site! This project is dedicated to providing an
 - **Store**: Browse and purchase gaming products.
 - **Admin Features**: Admins can manage posts, comments, and products.
 
+## About
+
+This project is built with ReactJS to provide a better user interface. ReactJs can be used to create front-end sites efficiently without using the complex version of html. It can also used to create various types of applications to website in matter of time. I have used ReactJS to create my website since im futurer proofing this when I restart my gamiing live stream. If the viewers dont have suffiecnt time to view from the twitch.tv platform they can also view it from the website where the livestream player is embedded in the page livestream
+
 ## Usage
 
 ### Running the Application
@@ -46,11 +51,11 @@ npm run deploy
 
 ## Project Structure
 - src/components: Contains the React components for the application.
-- src/pages: Contains the page components for d ifferent routes.
+- src/pages: Contains the page components for different routes.
 - src/hooks: Contains custom hooks for the application.
 - src/firebase.js: Firebase configuration and initialization.
 - public: Contains the public assets and the index.html file.
-- .github/workflows: Contains GitHub Actions workflows for CI/CD.
+- .github/workflows: Contains GitHub Actions workflows for CI/CD.(this will be coming in future)
 
 ## Environment Variabls
 Create a .env file in the root directory of the project and add the following environment variables:
