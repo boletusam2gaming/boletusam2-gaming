@@ -9,34 +9,35 @@ const Store = () => {
   const currentUser = JSON.parse(localStorage.getItem('authUser'));
 
   useEffect(() => {
-
+    // Update the document title
     updateTitle("Store");
-
+    // Fetch products from the ForthWall API
     const fetchProducts = async () => {
-      try {
+      try { // Fetch products from the ForthWall API
         const response = await fetch('https://api.forthwall.com/v1/products', {
-          headers: {
+          headers: {// Include the API key in the Authorization header
             'Authorization': `Bearer ${process.env.REACT_APP_FORTHWALL_STOREFRONT_API_KEY}`
           }
         });
-        if (!response.ok) {
+        if (!response.ok) {// Handle the response error
           throw new Error('Network response was not ok');
         }
-        const data = await response.json();
-        setProducts(data.products);
-      } catch (error) {
+        const data = await response.json();// Parse the JSON response
+        setProducts(data.products);// Set the products state
+      } catch (error) {// Handle the fetch error
         console.error('Error fetching products:', error);
       }
     };
-
+    // Call the fetchProducts function
     fetchProducts();
   });
 
-
+  // Handle the Add Product button click
   const handleAddProduct = () => {
     navigate('/add-product');
   };
 
+  // Render the Store component
   return (
     <div className="store-container">
       <h2>Store</h2>
