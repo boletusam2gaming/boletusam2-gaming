@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css'; // Import the CSS for the toast notifications
 import "./Auth.css";
 
 const Auth = () => {
@@ -18,9 +18,9 @@ const Auth = () => {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       await updateProfile(user, { displayName: username });
-      toast.success('User created successfully');
+      toast.success('User created successfully'); // Show a success message
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error.message);// Show an error message
     }
   };
 
@@ -29,9 +29,9 @@ const Auth = () => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      toast.success('User logged in successfully');
+      toast.success('User logged in successfully'); // Show a success message
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error.message);// Show an error message
     }
   };
 
@@ -49,7 +49,8 @@ const Auth = () => {
 
   return (
     <div className="auth-container">
-      <ToastContainer />
+      {/* Toast notificaation  */}
+      <ToastContainer />  
       <h2>{isSignUp ? 'Sign Up' : 'Login'}</h2>
       <form onSubmit={isSignUp ? handleSignUp : handleLogin}>
         {isSignUp && (

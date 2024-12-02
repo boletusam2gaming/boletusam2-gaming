@@ -8,12 +8,13 @@ const Admin = () => {
   const functions = getFunctions();
   const setAdminRole = httpsCallable(functions, 'setAdminRole');
 
+  // Function to set the Admin role for a user
   const handleSetAdmin = () => {
     setAdminRole({ uid })
       .then(result => {
-        console.log(result.data.message);
+        console.log(result.data.message);// Add state for user UID and status message
         setStatus('Admin role assigned successfully');
-      })
+      })// Add state for user UID and status message
       .catch(error => {
         console.error('Error assigning role: ', error);
         setStatus('Error assigning admin role');

@@ -51,7 +51,7 @@ const Forum = () => {
             const postData = { id: doc.id, ...doc.data() }; // Get the post data
             const commentsSnapshot = await getDocs(collection(db, `posts/${doc.id}/comments`)); // Get the comments for the post
             postData.comments = commentsSnapshot.docs.map(commentDoc => ({ id: commentDoc.id, ...commentDoc.data() })); // Get the comments for the post
-            postsArray.push(postData); // Add the post to the posts array
+            postsArray.push(postData); //- Add the post to the posts array
           }
           setLastVisible(querySnapshot.docs[querySnapshot.docs.length - 1]); // Set the last visible post for pagination
           setPosts(postsArray); // Update the state with the fetched posts
