@@ -46,7 +46,7 @@ function App() {
           <Route path="/forum" element={<Forum />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/store" element={<Store />} />
-          <Route path="/add-product" element={<AddProduct />} />
+          <Route path="/addproduct" element={<AddProduct />} />
           <Route path="/livestream" element={<Livestream />} />
           <Route path="/video" element={<Video />} />
           <Route path="/admin" element={isAdmin ? <Admin /> : <Navigate to="/login" />} />
