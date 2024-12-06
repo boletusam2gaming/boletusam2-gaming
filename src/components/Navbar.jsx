@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/AuthContext';
+import {ShoppingCart} from "phosphor-react";
 import './Navbar.css';
 
 // Navbar component
@@ -39,13 +40,20 @@ export const Navbar = () => {
             <nav>
                 <ul>
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="/blog">Blog</Link></li>
+                    <li className="dropdown" id="about"> 
+                        <span>About</span>
+                        <ul className="dropdown-content">
+                           <li><Link to="/about">About</Link></li>
+                           <li><Link to="/blog">Blog</Link></li> 
+                        </ul>
+                    
+                    </li>                    
                     <li><Link to="/contact">Contact</Link></li>
                     <li><Link to="/store">Store</Link></li>
                     <li><Link to="/forum">Forums</Link></li>
                     <li><Link to="/video"> Videos</Link></li>
                     <li><Link to="/livestream">Live Stream</Link></li>
+                    <li className="cart"><Link to="/cart"><ShoppingCart size={32}/> </Link></li>
                     {currentUser ? (
                         <>
                         <li className="dropdown">
@@ -59,6 +67,7 @@ export const Navbar = () => {
                     ) : (
                         <li><Link to="/login">Login</Link></li>
                     )}
+                    
                 </ul>
                 
             </nav>

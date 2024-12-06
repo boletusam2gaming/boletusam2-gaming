@@ -17,6 +17,7 @@ import UserAuth from './pages/UserAuth';
 import AddPost from './components/AddPost';
 import Video from './pages/Video';
 import EditProfile from './pages/EditProfile';
+import Cart from './pages/Cart.jsx';
 import { AuthProvider } from './hooks/AuthContext'; // Ensure you have the correct path to your AuthContext
 import './App.css';
 import { ToastContainer } from 'react-toastify';
@@ -52,6 +53,7 @@ function App() {
           <Route path="/admin" element={isAdmin ? <Admin /> : <Navigate to="/login" />} />
           <Route path="/login" element={<UserAuth />} />
           <Route path="/addpost" element={isAdmin ? <AddPost /> : <Navigate to="/login" />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/edit-profile" element={ <EditProfile />} /> 
         </Routes>
         <Footer />
