@@ -16,6 +16,7 @@ const Blog = () => {
     updateTitle("Blog");
   }, []);
 
+  // Fetch posts from Firestore
   useEffect(() => {
     const fetchPosts = async () => {
       try {

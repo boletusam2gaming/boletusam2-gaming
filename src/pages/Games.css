@@ -1,0 +1,68 @@
+/* src/components/Games.css */
+
+.games-container {
+    padding: 20px;
+    background-color: #121212; /* Dark background color */
+    font-family: 'Roboto', sans-serif; /* Modern font */
+    border: 1px solid  #00ffdd; /* Accent color */
+    border-radius: 8px;
+    width: auto;
+}
+  
+.title {
+    font-size: 2.5rem;
+    color: #ffffff; /* Light text color */
+    text-align: center;
+    margin-bottom: 10px;
+    border: 1px solid  #00ffdd; /* Accent color */
+    border-radius: 8px;
+}
+  
+.description {
+    font-size: 1.2rem;
+    color: #bbbbbb; /* Lighter text color */
+    text-align: center;
+    margin-bottom: 20px;
+}
+  
+.game-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+  
+.game-card {
+    background: #1e1e1e; /* Dark card background */
+    border: 1px solid  #00ffdd; /* Accent color */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    width: 300px;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+  
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+}
+  
+.game-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+  
+.game-title {
+    font-size: 1.5rem;
+    color: #ffffff; /* Light text color */
+    margin: 10px 0;
+}
+  
+.game-description {
+    font-size: 1rem;
+    color: #bbbbbb; /* Lighter text color for description */
+    margin: 0;
+}

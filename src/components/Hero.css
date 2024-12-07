@@ -4,7 +4,7 @@
 .hero {
     position: relative;
     height: 80vh;
-    background-image: url('../assets/hero-image.jpg');
+    background-image: url('../assets/hero-image.jpg');/* update image when time is right*/
     background-size: cover;
     background-position: center;
     display: flex;

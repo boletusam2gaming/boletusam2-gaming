@@ -8,6 +8,7 @@
   padding: 20px;
   background: #1e1e1e; /* Example background color for the theme */
   color: #fff; /* Example text color for the theme */
+  border: 1px solid #00ffdd; /* Example border color for the theme */
 }
 
 h1 {
@@ -21,6 +22,7 @@ form {
   width: 100%;
   max-width: 500px;
   margin-top: 20px;
+  
 }
 
 input, textarea {

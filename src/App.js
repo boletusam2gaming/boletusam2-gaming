@@ -1,3 +1,4 @@
+// Imports
 import React from 'react';
 import { HashRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -11,10 +12,12 @@ import Contact from './pages/Contact';
 import Store from './components/Store';
 import AddProduct from './components/AddProduct';
 import Livestream from './pages/LiveStream';
+import Games from './pages/Games';
 import Admin from './components/Admin';
 import Footer from './components/Footer';
 import UserAuth from './pages/UserAuth';
 import AddPost from './components/AddPost';
+import Events from './components/Events';
 import Video from './pages/Video';
 import EditProfile from './pages/EditProfile';
 import Cart from './pages/Cart.jsx';
@@ -45,10 +48,12 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/forum" element={<Forum />} />
+          <Route path="/events" element={<Events />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/store" element={<Store />} />
           <Route path="/addproduct" element={<AddProduct />} />
           <Route path="/livestream" element={<Livestream />} />
+          <Route path="/games" element={<Games />} />
           <Route path="/video" element={<Video />} />
           <Route path="/admin" element={isAdmin ? <Admin /> : <Navigate to="/login" />} />
           <Route path="/login" element={<UserAuth />} />

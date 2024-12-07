@@ -63,7 +63,7 @@ const Home = () => {
         <h2>Stream Schedule</h2>
         <p>Check out our stream schedule below to see when we are live!
           <br />
-          For 2 years am away from streaming for vacation, will return soon.
+          For sometime,  I'll be away from streaming for vacation, will return soon.
           <br />
           Dont miss out on the Upcoming Stream when i return.
         </p>

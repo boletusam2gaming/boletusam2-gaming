@@ -1,0 +1,149 @@
+/* src/components/Events.css */
+
+/* Container for the entire events section */
+.events-calendar {
+    padding: 20px;
+    background-color: #121212; /* Dark background color */
+    color: #ffffff; /* Light text color */
+    font-family: 'Roboto', sans-serif; /* Modern font */
+    border-radius: 8px;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+  
+}
+
+/* Title for the events section */
+.events-calendar h1 {
+    font-size: 2.6rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00ffdd; /* Accent color */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7); 
+    border: 1px solid #00ffdd; /* Accent color */
+    width: auto;
+}
+
+/* Container for the events list */
+.events-list {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Title for the events list */
+.events-list h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #00ffdd; /* Accent color */
+}
+
+/* List of events */
+.events-list ul {
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  color: #fff9f9; /* Lighter text color */
+}
+
+/* Individual event item */
+.events-list li {
+    background-color: #1e1e1e; /* Dark card background */
+    border: 1px solid #00ffdd; /* Accent color */
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Darker shadow */
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: #ffffff; /* Lighter text color */
+    height: 60px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left:0;
+
+}
+
+/* Hover effect for event item */
+.events-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+}
+
+/* No events message */
+.events-list p {
+    font-size: 1.2rem;
+    color: #bbbbbb; /* Lighter text color */
+    text-align: center;
+}
+
+/* Calender css */
+/* Custom styles for react-calendar */
+.react-calendar {
+    background-color: #1e1e1e; 
+    border: 1px solid #00ffdd; 
+    border-radius: 8px;
+    color: #ffffff; 
+    font-family: 'Roboto', sans-serif; 
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7); 
+    width: 1000px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom:20px;
+}  
+.react-calendar__navigation button {
+    color: #00ffdd; 
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    margin: 12px;
+    cursor: pointer;
+    
+    
+}
+
+.react-calendar__navigation button:disabled {
+    color: #555555; 
+}
+.react-calendar__tile:enabled:hover{
+    margin:auto;
+}
+  
+.react-calendar__month-view__weekdays {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: #bbbbbb;
+}
+  
+.react-calendar__tile {
+    background: none;
+    border: none;
+    color: #ffffff; 
+    padding: 11px;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+    position: relative;
+    
+}
+  
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+    background-color: #333333;
+    transform: translateY(1px);
+    
+}
+  
+.react-calendar__tile--now {
+    background: #00ffdd; 
+    color: #000000; 
+}
+  
+.react-calendar__tile--active {
+    background: #00ffdd; 
+    color: #000000; 
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+    background: #00ccaa; 
+}

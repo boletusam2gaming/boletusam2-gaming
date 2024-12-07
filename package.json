@@ -5,6 +5,9 @@
   "homepage": "https://boletusam2gaming.github.io/boletusam2-gaming/",
   "dependencies": {
     "@apollo/client": "^3.11.8",
+    "@schedule-x/events-service": "^2.10.0",
+    "@schedule-x/react": "^2.9.0",
+    "@schedule-x/theme-default": "^2.10.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -17,6 +20,7 @@
     "graphql": "^16.9.0",
     "phosphor-react": "^1.4.1",
     "react": "^18.3.1",
+    "react-calendar": "^5.1.0",
     "react-dom": "^18.3.1",
     "react-firebase-hooks": "^5.1.1",
     "react-router-dom": "^6.27.0",
