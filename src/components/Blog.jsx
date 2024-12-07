@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { collection, query, orderBy, getDocs } from 'firebase/firestore';
 import { db, auth } from '../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import {useAuth} from '../hooks/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { updateTitle } from '../utils/updateTitle';
 import './Blog.css'; // CSS file for styling
@@ -9,7 +10,8 @@ import './Blog.css'; // CSS file for styling
 const Blog = () => {
   const [filter, setFilter] = useState('All');
   const [articles, setArticles] = useState([]);
-  const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth); // Get the current user
+  const {role} = useAuth(); // Get the user's role
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,7 +22,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const q = query(collection(db, 'Blog'), orderBy('Date', 'desc'), orderBy('Title', 'asc'));
+        const q = query(collection(db, 'blog'), orderBy('Date', 'asc'));
         const querySnapshot = await getDocs(q);
         const fetchedPosts = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         console.log('Fetched posts:', fetchedPosts); // Debugging purposes
@@ -33,19 +35,6 @@ const Blog = () => {
     fetchPosts();
   }, []);
 
-  // Check user authentication state if user is an admin or not
-  useEffect(() => {
-    if (user) {
-      user.getIdTokenResult().then(idTokenResult => {
-        if (idTokenResult.claims.admin) {
-          console.log('User is an admin');
-        } else {
-          console.log('User is not an admin');
-        }
-      });
-    }
-  }, [user]);
-
 
   // Filter articles based on the selected category
   const filteredArticles = filter === 'All' ? articles : articles.filter(article => article.category === filter);
@@ -55,9 +44,16 @@ const Blog = () => {
     navigate('/AddPost');
   };
 
+
   return (
     <div className="blog-container">
       <h1>Blog</h1>
+      {user && role === 'admin' && (
+        <button onClick={handleAddPost} className="add-post-button">
+          Add Post
+        </button>
+      )} 
+      
       <div className="filter-container">
         <label htmlFor="category-filter">Filter by category:</label>
         <select
@@ -72,11 +68,7 @@ const Blog = () => {
           {/* Add more categories as needed */}
         </select>
       </div>
-      {user && user.customClaims && user.customClaims.role === 'admin' && (
-        <button onClick={handleAddPost} className="add-post-button">
-          Add Post
-        </button>
-      )}
+       
       <ul className="post-list">
         {filteredArticles.map(post => (
           <li key={post.id} className="post-item">

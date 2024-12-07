@@ -31,6 +31,7 @@
   color: #0e0e0e; /* Dark text color */
   cursor: pointer;
   margin-bottom: 20px;
+  height: 40px;
 }
 
 .add-post-button:hover {
