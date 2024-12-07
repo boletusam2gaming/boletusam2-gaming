@@ -8,15 +8,13 @@ import './Events.css';
 const Events = () => {
     // this section will be used to display the events
     // that are scheduled for the livestreaming schedule for certain games and events
-    
-    
     // State to store the selected date
     const [selectedDate, setSelectedDate] = useState(new Date());
     // State to store the array of events of the scheduled dates
     const [event] = useState([
         {title: 'COD MW3 Stream', date: new Date(2025, 1, 11, 20, 30)}, //dates are in the format (year, month, day) month is 0 based index starting from january[0]-december[11] [0-11]
-        {title: 'COD Bo6 Stream', date: new Date(2025, 2, 22, 20, 30)},//dates are in the format (year, month, day)
-        {title: 'COD WatchParty', date: new Date(2025, 2, 3, 17, 30)},//dates are in the format (year, month, day) time is in 24 hour format in code but in ui it will be displayed in 12 hour format
+        {title: 'COD Bo6 Stream', date: new Date(2025, 1, 12, 20, 30)},//dates are in the format (year, month, day)
+        {title: 'COD WatchParty', date: new Date(2025, 1, 13, 17, 30)},//dates are in the format (year, month, day) time is in 24 hour format in code but on the site it will be displayed in 12 hour format
 
         // Add more events as they come up following the same format
     ]); // Array of events
@@ -74,6 +72,7 @@ export default Events;
 
 
 /*
+
     I have used ReactJS as the tool for the project to build the website.
     I have learned ReactJS to be an easier way to build the website and to make it more interactive and user-friendly. 
     The intermediate topic that I have used in this project is the use of the

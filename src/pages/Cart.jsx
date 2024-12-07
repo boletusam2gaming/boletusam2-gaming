@@ -13,7 +13,7 @@ const Cart = () => {
   // Fetch cart items from Firestore
     const fetchCartItems = async () => {
       if (user){
-        const cartCollection = collection(db, 'users', user.uid, 'cart'); // Create a reference to the user's cart collection
+        const cartCollection = collection(db, 'cart', user.uid, 'items'); // Create a reference to the user's cart collection
         const cartSnapshot = await getDocs(cartCollection); // Get the cart items from Firestore
         const cartItemsArray = cartSnapshot.docs.map(doc => doc.data()); // Map through the documents and create an array of cart items
         setCartItems(cartItemsArray); // Set the cart items state
@@ -29,17 +29,21 @@ const Cart = () => {
   const addToCart = async (product) => {
     if (user) {
       const cartCollection = collection(db, 'users', user.uid, 'cart');
-      await addDoc(cartCollection, product);
-      setCartItems([...cartItems, product]);
+      const docRef = await addDoc(cartCollection, product);
+      setCartItems([...cartItems, {...product, id: docRef.id}]);
     }
   };
   
 
   // Remove from cart function
-  const removeFromCart = (product) => {
-    const newCartItems = [...cartItems];
-    newCartItems.splice(newCartItems.indexOf(product), 1);
-    setCartItems(newCartItems);
+  const removeFromCart =  async (product) => {
+    if (user) {
+      const cartCollection = collection (db, 'users', user.uid, 'cart');
+      const cartItenDoc = doc(cartCollection, product.id);
+      await deleteDoc(cartItenDoc);
+      const newCartItems = cartItems.filter(item => item.id !== product.id);
+      setCartItems(newCartItems);
+    }
   };
 
   // calculate total price
@@ -58,6 +62,7 @@ const Cart = () => {
           {cartItems.map((item, index) => (
             <li key={index}>
               {item.name} - ${item.price.toFixed(2)}{' '}
+              <button onClick={() => addToCart(item)}>Add to cart</button>
               <button onClick={() => removeFromCart(item)}>Remove</button>
             </li>
           ))}

@@ -65,25 +65,34 @@ const Forum = () => {
     
   
   }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // function to load more posts 
-  const loadMorePosts = async ()  => {
-    if (lastVisible){ // Check if there are more posts to load
-      setLoading(true); // Set loading state to true
-      const q = query(collection(db, 'posts'), orderBy('date', 'desc'), startAfter(lastVisible), limit(13)); // Create a query for the posts
-      const querySnapshot = await getDocs(q);   // Get the posts from Firestore
-      const postsArray = []; // Create an array to store the posts
-      for (const doc of querySnapshot.docs) { // Loop through the posts
-        const postData = {id : doc.id, ...doc.data()}; // Get the post data
-        const commentsSnapshot = await getDocs(collection(db, `posts/${doc.id}/comments`)); // Get the comments for the post
-        postData.comments = commentsSnapshot.docs.map(commentDoc => ({ id: commentDoc.id, ...commentDoc.data() })); // Get the comments for the post
-        postsArray.push(postData); // Add the post to the posts array
+// Load more posts function
+const loadMorePosts = async () => {
+  if (lastVisible) {
+    setLoading(true);
+    try {
+      const postsQuery = query(
+        collection(db, 'posts'),
+        orderBy('date', 'desc'),
+        startAfter(lastVisible),
+        limit(10)
+      );
+      const querySnapshot = await getDocs(postsQuery);
+      const lastVisibleDoc = querySnapshot.docs[querySnapshot.docs.length - 1];
+      setLastVisible(lastVisibleDoc);
+      const postsArray = [];
+      for (const doc of querySnapshot.docs) {
+        const postData = { id: doc.id, ...doc.data() };
+        const commentsSnapshot = await getDocs(collection(db, `posts/${doc.id}/comments`));
+        postData.comments = commentsSnapshot.docs.map(commentDoc => ({ id: commentDoc.id, ...commentDoc.data() }));
+        postsArray.push(postData);
       }
-      setLastVisible(querySnapshot.docs[querySnapshot.docs.length - 1]); // Set the last visible post for pagination
-      setPosts(prevPosts => [...prevPosts, ...postsArray]); // Update the state with the fetched posts
-      setLoading(false); // Set loading state to false
+      setPosts(prevPosts => [...prevPosts, ...postsArray]);
+    } catch (error) {
+      console.error('Error fetching more posts:', error);
     }
-  };
+    setLoading(false);
+  }
+};
 
 
 
@@ -216,6 +225,10 @@ const Forum = () => {
         ))}
       </ul>
     </div>
+    <button
+      onClick={loadMorePosts}
+      disabled={loading}
+    >Load more posts</button>
   </div>
   );
 };
