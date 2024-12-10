@@ -10,10 +10,15 @@ const Cart = () => {
   const [cartItems, setCartItems] = useState([]); // State to keep track of the cart items
 
   useEffect(() => {
+
+      
+
+
+
   // Fetch cart items from Firestore
     const fetchCartItems = async () => {
       if (user){
-        const cartCollection = collection(db, 'cart', user.uid, 'items'); // Create a reference to the user's cart collection
+        const cartCollection = collection(db, 'users', user.uid, 'cart'); // Create a reference to the user's cart collection
         const cartSnapshot = await getDocs(cartCollection); // Get the cart items from Firestore
         const cartItemsArray = cartSnapshot.docs.map(doc => doc.data()); // Map through the documents and create an array of cart items
         setCartItems(cartItemsArray); // Set the cart items state
@@ -25,7 +30,7 @@ const Cart = () => {
 
   }, [user]);
 
-  // add to cart funciton
+  // add to cart function
   const addToCart = async (product) => {
     if (user) {
       const cartCollection = collection(db, 'users', user.uid, 'cart');
