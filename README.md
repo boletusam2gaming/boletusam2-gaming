@@ -4,6 +4,7 @@ Welcome to the Boletusam2 Gaming site! This project is dedicated to providing an
 
 ## Table of Contents
 
+- [Azure-Status](#azure-status)
 - [Features](#features)
 - [About](#about)
 - [Usage](#usage)
@@ -15,6 +16,12 @@ Welcome to the Boletusam2 Gaming site! This project is dedicated to providing an
 - [License](#license)
 - [Contact](#contact)
 
+## Azure-Status
+
+### Build Status
+[![Build status](https://dev.azure.com/boletusam2gamingllc/Boletusam2_Gaming_Website/_apis/build/status/Boletusam2_Gaming_Website-CI)](https://dev.azure.com/boletusam2gamingllc/Boletusam2_Gaming_Website/_build/latest?definitionId=20)
+
+### Release Status
 
 
 ## Features
