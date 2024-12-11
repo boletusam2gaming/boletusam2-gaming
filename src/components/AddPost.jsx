@@ -13,6 +13,7 @@ const AddPost = () => {
   const [category, setCategory] = useState('');
   const [date, setDate] = useState('');
 
+    // Code given by GitHub CoPilot to add a new post to forum collection in Firebase starts here
   // Redirect to login page if user is not logged in
   if (!user) {
     return <Navigate to="/login" />;
@@ -41,6 +42,7 @@ const AddPost = () => {
     }
   };
 
+    // Code given by GitHub CoPilot to add a new post to forum collection in Firebase ends here
   return (
     <div className="add-post-container">
       <h1>Add New Post</h1>
