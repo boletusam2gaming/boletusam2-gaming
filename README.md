@@ -23,7 +23,6 @@ Welcome to the Boletusam2 Gaming site! This project is dedicated to providing an
 
 ### Release Status
 
-
 ## Features
 
 - **User Profiles**: Create and manage your website profile.
