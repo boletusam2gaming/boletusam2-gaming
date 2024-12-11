@@ -16,6 +16,8 @@ Welcome to the Boletusam2 Gaming site! This project is dedicated to providing an
 - [Contact](#contact)
 
 
+## Azure Build Status
+[![Build status](https://dev.azure.com/boletusam2gamingllc/Boletusam2_Gaming_Website/_apis/build/status/Boletusam2_Gaming_Website-CI)](https://dev.azure.com/boletusam2gamingllc/Boletusam2_Gaming_Website/_build/latest?definitionId=20)
 
 ## Features
 
