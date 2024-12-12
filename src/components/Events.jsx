@@ -3,9 +3,12 @@ import React, {useState} from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './Events.css';
+import {updateTitle} from '../utils/updateTitle';
 
 // This is the main function that will be exported to the App.js file to be displayed on the site
 const Events = () => {
+
+    updateTitle("Events"); //update the title of the page to show the current page
     // this section will be used to display the events
     // that are scheduled for the livestreaming schedule for certain games and events
     // State to store the selected date
