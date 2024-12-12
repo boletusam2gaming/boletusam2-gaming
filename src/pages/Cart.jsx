@@ -3,6 +3,7 @@ import {db, auth} from '../firebase';
 import { collection, addDoc, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import './Cart.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { updateTitle } from '../utils/updateTitle';
 
 const Cart = () => {
   // Initialize cart items state
@@ -10,11 +11,7 @@ const Cart = () => {
   const [cartItems, setCartItems] = useState([]); // State to keep track of the cart items
 
   useEffect(() => {
-
-      
-
-
-
+    updateTitle('Cart'); // Update the title of the page 
   // Fetch cart items from Firestore
     const fetchCartItems = async () => {
       if (user){
