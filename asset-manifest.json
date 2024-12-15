@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/boletusam2-gaming/static/css/main.947d1c27.css",
-    "main.js": "/boletusam2-gaming/static/js/main.851cbd2c.js",
+    "main.css": "/boletusam2-gaming/static/css/main.be7f3f09.css",
+    "main.js": "/boletusam2-gaming/static/js/main.051c47d7.js",
     "static/js/453.5eef9c35.chunk.js": "/boletusam2-gaming/static/js/453.5eef9c35.chunk.js",
     "static/media/hero-image.jpg": "/boletusam2-gaming/static/media/hero-image.660501256f1615b1e298.jpg",
     "static/media/CODMW3.png": "/boletusam2-gaming/static/media/CODMW3.c59550330e297a2d0981.png",
+    "static/media/bg_lng_slv_shrt.jpg": "/boletusam2-gaming/static/media/bg_lng_slv_shrt.be59160a946f7d2b1de4.jpg",
     "static/media/CODWarzone.jpg": "/boletusam2-gaming/static/media/CODWarzone.0649beff346cc5edeb8f.jpg",
     "static/media/CODBO6.jpg": "/boletusam2-gaming/static/media/CODBO6.4f86b53909c1084662f8.jpg",
     "index.html": "/boletusam2-gaming/index.html",
-    "main.947d1c27.css.map": "/boletusam2-gaming/static/css/main.947d1c27.css.map",
-    "main.851cbd2c.js.map": "/boletusam2-gaming/static/js/main.851cbd2c.js.map",
+    "main.be7f3f09.css.map": "/boletusam2-gaming/static/css/main.be7f3f09.css.map",
+    "main.051c47d7.js.map": "/boletusam2-gaming/static/js/main.051c47d7.js.map",
     "453.5eef9c35.chunk.js.map": "/boletusam2-gaming/static/js/453.5eef9c35.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.947d1c27.css",
-    "static/js/main.851cbd2c.js"
+    "static/css/main.be7f3f09.css",
+    "static/js/main.051c47d7.js"
   ]
 }
