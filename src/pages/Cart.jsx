@@ -21,7 +21,7 @@ const Cart = () => {
         setCartItems(cartItemsArray); // Set the cart items state
       }
     };
-
+    
     //call the fetchCartItems function
     fetchCartItems();
 
@@ -62,8 +62,10 @@ const Cart = () => {
       ) : (
         <ul>
           {cartItems.map((item, index) => (
-            <li key={index}>
-              {item.name} - ${item.price.toFixed(2)}{' '}
+            <li key={index} className="product-item">
+              <img src={item.image} alt={item.name} />
+              <h3>{item.name}</h3>
+              <p>${item.price.toFixed(2)}</p>
               <button onClick={() => addToCart(item)}>Add to cart</button>
               <button onClick={() => removeFromCart(item)}>Remove</button>
             </li>
@@ -75,4 +77,4 @@ const Cart = () => {
   )  
 }
 
-export default Cart
+export default Cart;

@@ -2,12 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { updateTitle } from '../utils/updateTitle';
 import {db, auth} from '../firebase';
-import { collection, getDocs, orderBy, query } from 'firebase/firestore';
+import { collection, getDocs, orderBy, query, setDoc, doc } from 'firebase/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useAuth } from '../hooks/AuthContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Store.css';
+
+
+// Import the image
+import bgLngSlvShrt from '../assets/merch/bg_lng_slv_shrt.jpg';
+
+
 
 const Store = () => {
   // Setting up the state for the Store component
@@ -21,7 +27,7 @@ const Store = () => {
     // Update the document title
     updateTitle("Store");
 
-    // Function ro fetch the products from Firestore
+    // Function to fetch the products from Firestore
     const fetchProducts = async () => {
       try {
         const q = query(
@@ -41,13 +47,27 @@ const Store = () => {
 
   // Handle the cart addition for the products
 
-  const  handleAddToCart = (product) =>{
+  const  handleAddToCart = async (product) =>{
     const updateCart = [...cart, product]; // Copy the cart
+    console.log('Adding to cart:', product);
     setCart(updateCart); // Add product to cart
-    //Toast notification
-    toast.success('Product added to cart'); // Show a success toast notification
-    
 
+    // Add the product to the cart collection in Firestore
+    if (user) {
+      try {
+        const cartCollection = collection(db, 'users', user.uid, 'cart');
+        const cartItemDoc = doc(cartCollection, product.id); // Create a reference to the cart item document
+        await setDoc(cartItemDoc, product); // Set the cart item document
+        // console.log('Product added to Firestore:', product); // Debugging statement
+        toast.success('Product added to cart'); // Show a success toast notification
+      } catch (error) {
+        // console.error('Error adding product to cart:', error); // Handle the error
+        toast.error('Failed to add product to cart'); // Show an error toast notification
+      }
+    } else {
+      // console.error('User is not authenticated'); // Handle the case where the user is not authenticated
+      toast.error('You need to be logged in to add products to the cart'); // Show an error toast notification
+    }
   }
   
   // Render the Store component
@@ -63,7 +83,7 @@ const Store = () => {
       <div className="products">
         {products.map(product => (
           <div key={product.id} className="product">
-            {/* <img src={product.image} alt={product.name} /> */}
+            <img src={product.image || bgLngSlvShrt} alt={product.name} />
             <h3>{product.name}</h3>
             <p>{product.description}</p>
             <p className="price">${product.price.toFixed(2)}</p>

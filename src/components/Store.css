@@ -40,11 +40,12 @@
     flex-direction: column;
     margin-top: 10px;
 }
-/* uncomment image when using this  */
-/* .product img {
+.product img {
     width: 100%;
     border-radius: 5px;
-} */
+    margin-bottom: 10px;
+    height: 172px;
+}
 
 .product h3 {
     color: #00ffdd;
