@@ -35,7 +35,7 @@
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
     text-align: left;
     max-width: 400px;
-    height: 40vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     margin-top: 10px;
@@ -86,3 +86,4 @@ button:hover {
     cursor: pointer;
     margin-bottom: 20px;
 }
+

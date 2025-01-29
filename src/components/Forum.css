@@ -71,8 +71,15 @@ li {
   flex-direction: column;
   align-items: center;
   max-width: 500px;
-}
+} 
 
+.comments{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1500px;
+}
 
 .delete{
   background: #ff0000;

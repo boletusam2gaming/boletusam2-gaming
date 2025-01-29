@@ -8,6 +8,7 @@ import { useAuth } from '../hooks/AuthContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Store.css';
+import SidePanel from './SidePanel';
 
 
 // Import the image
@@ -20,6 +21,7 @@ const Store = () => {
   const [products, setProducts] = useState([]);// State to keep track of the products
   const [cart, setCart] = useState([]);// State to keep track of the cart
   const navigate = useNavigate();// Navigate to other pages
+  const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);// State to keep track of the side panel
   const [user] = useAuthState(auth); // Get the current user
   const {role} = useAuth(); // Get the user's role
 
@@ -42,8 +44,21 @@ const Store = () => {
         console.error('Error fetching products:', error);
       }
     };
+      const fetchCartItems = async () => {
+        if (user){
+          const cartCollection = collection(db, 'users', user.uid, 'cart'); // Create a reference to the user's cart collection
+          const cartSnapshot = await getDocs(cartCollection); // Get the cart items from Firestore
+          const cartItemsArray = cartSnapshot.docs.map(doc => doc.data()); // Map through the documents and create an array of cart items
+          setCart(cartItemsArray); // Set the cart items state
+        };
+      };
+
+
+
+
       fetchProducts();
-  }, []);
+      fetchCartItems();
+  }, [user]);
 
   // Handle the cart addition for the products
 
@@ -69,6 +84,18 @@ const Store = () => {
       toast.error('You need to be logged in to add products to the cart'); // Show an error toast notification
     }
   }
+
+
+    // Side panel for cart functions
+  const handleOpenSidePanel = () => {
+    setIsSidePanelOpen(true);
+  };
+
+  const handleCloseSidePanel = () => {
+    setIsSidePanelOpen(false);
+  };
+
+
   
   // Render the Store component
   return (
@@ -90,7 +117,11 @@ const Store = () => {
             <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
           </div>
         ))}
+        
       </div>
+      <button className="open-side-panel-button" onClick={handleOpenSidePanel}> View Cart </button>
+      <SidePanel isOpen={isSidePanelOpen} onClose={handleCloseSidePanel} cartItems={cart} /> {/* Side panel for the cart */}
+     
       <ToastContainer /> {/* Toast container for notifications */}
     </div>
   );
