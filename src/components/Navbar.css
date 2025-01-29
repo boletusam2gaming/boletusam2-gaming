@@ -14,7 +14,13 @@
     height: 400px;
     object-fit: cover;
 }
+/* iframe setting for width */
+iframe{
+    max-width: 98vw;
+    margin: 0;
+}
 
+/* Main Navigation */
 .navbar {
     display: flex;
     flex-wrap: wrap;

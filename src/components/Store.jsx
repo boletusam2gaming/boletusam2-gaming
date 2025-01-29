@@ -119,7 +119,7 @@ const Store = () => {
         ))}
         
       </div>
-      <button className="open-side-panel-button" onClick={handleOpenSidePanel}> View Cart </button>
+      <button className="open-side-panel-button" onClick={handleOpenSidePanel}> View Cart </button> {/* Button to open the side panel */}
       <SidePanel isOpen={isSidePanelOpen} onClose={handleCloseSidePanel} cartItems={cart} /> {/* Side panel for the cart */}
      
       <ToastContainer /> {/* Toast container for notifications */}
