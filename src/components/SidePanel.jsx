@@ -2,12 +2,12 @@ import React from 'react';
 import './SidePanel.css';
 
 
-// IMport images for items
+// Import images for items
 import bgLngSlvShrt from '../assets/merch/bg_lng_slv_shrt.jpg';
 
 
 
-const SidePanel = ({ isOpen, onClose, cartItems }) => {
+const SidePanel = ({ isOpen, onClose, cartItems, onRemove }) => {
   return (
     // Add the side-panel class to the div element
     <div className={`side-panel ${isOpen ? 'open' : ''}`}>
@@ -25,6 +25,7 @@ const SidePanel = ({ isOpen, onClose, cartItems }) => {
               <img src={item.image || bgLngSlvShrt} alt={item.name} />
                 <h3>{item.name}</h3>
                 <p>${item.price.toFixed(2)}</p>
+                <button onClick={() => onRemove(item)}>Remove</button>
                 
               </li>
             ))}

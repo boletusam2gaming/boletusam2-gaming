@@ -39,7 +39,7 @@ export const Navbar = () => {
             {/* navbar links */}
             <nav>
                 <ul>
-                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/"> Home</Link></li>
                     <li className="dropdown" id="about"> 
                         <span>General</span>
                         <ul className="dropdown-content">

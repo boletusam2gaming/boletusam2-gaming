@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { json, useNavigate } from 'react-router-dom';
 import { updateTitle } from '../utils/updateTitle';
 import {db, auth} from '../firebase';
-import { collection, getDocs, orderBy, query, setDoc, doc } from 'firebase/firestore';
+import { collection, getDocs, orderBy, query, setDoc, doc, deleteDoc } from 'firebase/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useAuth } from '../hooks/AuthContext';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify'; // Importing the toastify library for notifications
+import 'react-toastify/dist/ReactToastify.css'; // Importing the toastify styles
 import './Store.css';
 import SidePanel from './SidePanel';
+
 
 
 // Import the image
@@ -95,7 +96,15 @@ const Store = () => {
     setIsSidePanelOpen(false);
   };
 
-
+  const handleRemoveFromCart = async (product) => {
+    if (user) {
+        const cartCollection = collection(db, 'users', user.uid, 'cart'); // Create a reference to the user's cart collection
+        const cartItemDoc = doc(cartCollection, product.id); // Create a reference to the cart item document
+        await deleteDoc(cartItemDoc); // Remove the item from the cart
+        setCart(cart.filter(item => item.id !== product.id)); // Update the cart state
+        toast.success('Product is removed from cart'); // Show a success toast notification
+    }
+  }
   
   // Render the Store component
   return (
@@ -117,10 +126,11 @@ const Store = () => {
             <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
           </div>
         ))}
-        
+      
       </div>
       <button className="open-side-panel-button" onClick={handleOpenSidePanel}> View Cart </button> {/* Button to open the side panel */}
-      <SidePanel isOpen={isSidePanelOpen} onClose={handleCloseSidePanel} cartItems={cart} /> {/* Side panel for the cart */}
+      <SidePanel isOpen={isSidePanelOpen} onClose={handleCloseSidePanel} 
+        cartItems={cart}  onRemove={handleRemoveFromCart} /> {/* Side panel for the cart */}
      
       <ToastContainer /> {/* Toast container for notifications */}
     </div>

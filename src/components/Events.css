@@ -77,6 +77,13 @@
     text-align: center;
 }
 
+/* event-day styles */
+.event-day{
+    background-color: #00ffdd;
+    color:#000000;
+    border-radius: 50%;
+}
+
 /* Calender css */
 /* Custom styles for react-calendar */
 .react-calendar {

@@ -18,9 +18,9 @@ const Events = () => {
         {title: 'COD MW3 Stream', date: new Date(2025, 1, 11, 20, 30)}, //dates are in the format (year, month, day) month is 0 based index starting from january[0]-december[11] [0-11]
         {title: 'COD Bo6 Stream', date: new Date(2025, 1, 12, 20, 30)},//dates are in the format (year, month, day)
         {title: 'COD WatchParty', date: new Date(2025, 1, 13, 17, 30)},//dates are in the format (year, month, day) time is in 24 hour format in code but on the site it will be displayed in 12 hour format
-
-        // Add more events as they come up following the same format
-    ]); // Array of events
+        {title: 'Wedding Day', date: new Date(2025, 6, 5, 20)}, //dates are in the format (year, month, day)
+        // Add more events as they come up following the same format 
+    ]); // Array of events 
 
 
     //these 2 functions will be used to display the events on the calendar
@@ -41,7 +41,7 @@ const Events = () => {
     return (
         <div className="events-calendar">
             <h1>Events</h1>
-            <Calendar onChange={handleDateChange} value={selectedDate} />
+            <Calendar onChange={handleDateChange} value={selectedDate}/>
             <div className="events-list">
                 <h2>Events on {selectedDate.toDateString()}</h2>
                 {filteredEvents.length ===0 ? (

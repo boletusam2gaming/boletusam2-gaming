@@ -61,7 +61,6 @@ npm run deploy
 - src/hooks: Contains custom hooks for the application.
 - src/firebase.js: Firebase configuration and initialization.
 - public: Contains the public assets and the index.html file.
-- .github/workflows: Contains GitHub Actions workflows for CI/CD.(this will be coming in future)
 
 ## Environment Variabls
 Create a .env file in the root directory of the project and add the following environment variables:
